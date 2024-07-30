@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="zh-TW">
 <head>
@@ -7,7 +6,6 @@
 <meta name="keywords" content="大學甄選,甄選入學,申請入學,個人申請,甄選入學委員會,大學甄選入學委員會" />
 <meta name="description" content="大學招生委員會聯合會 大學甄選入學委員會" />
       
-      ﻿
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X90GJM2RNE"></script>
 <script>
@@ -17,8 +15,6 @@
 
   gtag('config', 'G-X90GJM2RNE');
 </script>
-
-
 
 <script language="JavaScript1.2" type="text/javascript">
 <!--
@@ -62,7 +58,6 @@ function MM_preloadImages() { //v3.0
 	'./images/main_menu_05.jpg','./images/main_menu_06.jpg','./images/main_menu_07.jpg','./images/main_menu_08.jpg',
 	'./images/main_menu_09.jpg','./images/main_menu_10.jpg');">
  
-
 <table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr><td colspan="4">
   	  	<table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -107,7 +102,6 @@ function MM_preloadImages() { //v3.0
     <td width="64" valign="top" background="images/bg_hor.jpg"></td>
     <td width="146" valign="top" background="images/main_menu_bg.jpg">
     	
-
 <div id="FWTableContainer130922227">
 <table style="display: inline-table;" border="0" cellpadding="0" cellspacing="0" width="146">
   
@@ -210,8 +204,7 @@ function MM_preloadImages() { //v3.0
 	</div>
 </div>
 </div>
-
-    	      
+   
       <table width="146" border="0" align="center" cellpadding="0" cellspacing="0">      	
       	<tr> 
           <td><a href="system_area_highschool.php"><img src="images/main_menu_fun_hs.jpg" onmouseover="this.src='images/main_menu_fun_hs_up.jpg';" onmouseout="this.src='images/main_menu_fun_hs.jpg';" border="0"></a></td>
@@ -243,7 +236,6 @@ function MM_preloadImages() { //v3.0
               <td height="45" width="108" valign="top"><img src="images/icon_16.jpg" width="120" height="37"></td>
               <td>
               
-
 <script language="JavaScript1.2">
 
 var marqueewidth="550px"
