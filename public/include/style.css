@@ -1,0 +1,186 @@
+/*2017.03.29 Jackpro ¥H¤U*/
+
+.main_menu_fun_td{
+	border:1px solid #f4fdff;
+}
+
+.main_bottom_desc{	
+	font-size:12px;
+	font-family:Microsoft JhengHei,Verdana, Arial, Helvetica, sans-serif;	
+	color:#000000;
+	width:100%;
+	line-height:20px;
+	text-align:center;			
+}
+
+img{
+  vertical-align: middle;
+}
+
+/*2017.03.29 Jackpro ¥H¤W*/
+
+.MENU_BG1 {
+  color: #000000;
+	border: 1px solid #CCCCCC;
+}
+.MENU_BG2 {
+	border: 1px solid #E5EEF3;
+	background-color: #E5EEF3;
+}
+.TB1 {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
+a:link {
+	color: #6983C9;
+	text-decoration: none;
+}
+a:visited {
+
+	color: #6983C9;
+	text-decoration: none;
+}
+a:hover {
+
+
+	color: #1AB3B9;
+	text-decoration: underline;
+}
+.a1:link {
+	color: #0000cd;
+	text-decoration: underline;
+}
+.a1:visited {
+
+	color: #0000cd;
+	text-decoration: underline;
+}
+.a1:hover {
+
+
+	color: #1AB3B9;
+	text-decoration: underline;
+}
+.a2:link {
+	color: #666666;
+	text-decoration: none;
+}
+.a2:visited {
+
+	color: #666666;
+	text-decoration: none;
+}
+.a2:hover {
+
+
+	color: #1AB3B9;
+	text-decoration: none;
+}
+.TBFONT {
+	font-size: 10pt;
+}
+.TB2 {
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: dashed;
+	border-right-style: dashed;
+	border-bottom-style: dashed;
+	border-left-style: dashed;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.TB3 {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: dashed;
+	border-right-style: dashed;
+	border-bottom-style: dashed;
+	border-left-style: dashed;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.TB4 {
+
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
+.TB5 {
+	border: 1px dashed #990000;
+}
+.INPUT {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: dashed;
+	border-right-style: dashed;
+	border-bottom-style: dashed;
+	border-left-style: dashed;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+
+}
+.LIST {
+	line-height: 28px;
+}
+.INPUT2 {
+	background-color: #EEEEEE;
+	border: 1px solid #333333;
+}
+.UPSCH1 {
+	background-color: #F0E68C;
+	text-align:center;
+	font-size: 10pt;
+}
+.UPSCH2 {	
+	text-align:center;
+	font-size: 10pt;
+}
+
+.CoQry_tr{
+	height:8px;
+}
+
+/*
+.TESTLINK {		
+	font-size: 14pt;
+	color: #FF0000;	
+	font-weight:bold;
+}
+
+.TESTLINK a:link {color: blue }
+.TESTLINK a:visited {color: blue}
+.TESTLINK a:active {color: blue}
+.TESTLINK a:hover {color: #009900}
+*/
