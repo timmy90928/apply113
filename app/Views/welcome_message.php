@@ -105,9 +105,9 @@ function MM_preloadImages() { //v3.0
 <div id="FWTableContainer130922227">
 <table style="display: inline-table;" border="0" cellpadding="0" cellspacing="0" width="146">
   
-  <tr><td><a href="https://www6.cac.edu.tw/account/index.php" target="_blank"><img name="rightmenu_r1_c0" src="./images/personal_pass_bar.jpg" id="rightmenu_r1_c0" alt="" /></a></td></tr>
- 
-  <tr><td><a href="covid_19_area.php" ><img name="rightmenu_r1_c1" src="./images/covid_19_response.jpg" id="rightmenu_r1_c1" alt="" /></a></td></tr> 
+  <tr><td><a href="/login/" class="login-button">使用者登入</a></td></tr>
+  <!-- <a href="/login/" ><img name="rightmenu_r1_c0" src="./images/personal_pass_bar_1.png" id="rightmenu_r1_c0" alt="" /></a> -->
+  <!-- <tr><td><a href="covid_19_area.php" ><img name="rightmenu_r1_c1" src="./images/covid_19_response.jpg" id="rightmenu_r1_c1" alt="" /></a></td></tr>  -->
   <tr><td><img name="rightmenu_r1_c1" src="./images/main_menu_title.jpg" id="rightmenu_r1_c1" alt="" /></td></tr>
   <tr><td><a href="index.php" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829223939_0', 'MMMenu0829223939_0',150,0,'rightmenu_r2_c1');MM_swapImage('rightmenu_r2_c1','','./images/main_menu_01_up.jpg',1);"><img name="rightmenu_r2_c1" src="./images/main_menu_01.jpg" border="0" id="rightmenu_r2_c1" alt="" /></a></td></tr>  
   <tr><td><a href="regulation.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r3_c1','','./images/main_menu_02_up.jpg',1);"><img name="rightmenu_r3_c1" src="./images/main_menu_02.jpg" border="0" id="rightmenu_r3_c1" alt="" /></a></td></tr>  
@@ -340,7 +340,6 @@ document.write('</td></table>')
             <td width="450" align="left" valign="top" class="TB1" style='color:#606060 ;font-size:12pt'> 
               <a href='https://www.cac.edu.tw/apply113/document/113apply_for_reporter_20240613.pdf' target='_blank'>113學年度大學申請入學招生「統一分發結果公告」暨繁星推薦招生「第8類學群錄取結果」公告新聞稿。</a>            </td>
             <td width="22" align="center" class="TB1"> 
-              <img src="images/icon_pdf.gif" width="16" height="16">            </td>
           </tr>         
                     <tr><td colspan="5" align="right" height="2"> </td></tr>
           <tr onMouseOver="this.style.backgroundColor='#EEEEEE'" onMouseOut="this.style.backgroundColor=''">            
@@ -379,8 +378,7 @@ document.write('</td></table>')
               [招生試務]</td>
             <td width="450" align="left" valign="top" class="TB1" style='color:#606060 ;font-size:12pt'> 
               <a href='https://www.cac.edu.tw/apply113/document/113apply_for_reporter_20240605.pdf' target='_blank'>113學年度申請入學網路登記就讀志願序新聞稿</a>            </td>
-            <td width="22" align="center" class="TB1"> 
-              <img src="images/icon_pdf.gif" width="16" height="16">            </td>
+            <td width="22" align="center" class="TB1">
           </tr>         
                     <tr><td colspan="5" align="right" height="2"> </td></tr>
           <tr onMouseOver="this.style.backgroundColor='#EEEEEE'" onMouseOut="this.style.backgroundColor=''">            
@@ -409,8 +407,7 @@ document.write('</td></table>')
               [甄選資訊]</td>
             <td width="450" align="left" valign="top" class="TB1" style='color:#606060 ;font-size:12pt'> 
               <a href='https://www.cac.edu.tw/apply113/document/113apply_for_reporter_20240502.pdf' target='_blank'>113學年度申請入學審查資料上傳系統正式開放新聞稿</a>            </td>
-            <td width="22" align="center" class="TB1"> 
-              <img src="images/icon_pdf.gif" width="16" height="16">            </td>
+            <td width="22" align="center" class="TB1">
           </tr>         
                     <tr><td>&nbsp;</td></tr><tr align="center"><td colspan="5" style="font-size:11pt;">瀏覽頁數：&nbsp;&nbsp;1&nbsp;&nbsp;<a href="index.php?P=2" style="text-decoration:underline">&nbsp;2&nbsp;</a>&nbsp;&nbsp;<a href="index.php?P=3" style="text-decoration:underline">&nbsp;3&nbsp;</a>&nbsp;&nbsp;<a href="index.php?P=4" style="text-decoration:underline">&nbsp;4&nbsp;</a>&nbsp;&nbsp;<a href="anno_all.php" style="text-decoration:underline">[全部]</a></td></tr>      </table>
        </td>          
@@ -429,8 +426,7 @@ document.write('</td></table>')
     	<table border="0" width="800">
     		<tr>    			    		  
     		  <td align="center">
-    	      ||&nbsp;<a href="https://www.cac.edu.tw/cacportal/PIMS_PrivateStatement/PIMS_PS_readfile.php?fileid1=CAC1001&fileid2=new" target="_blank">本會網站資訊安全及隱私權政策聲明</a>&nbsp;||    	          	      
-    	      &nbsp;可切換至&lt;<a href="../mobile_apply113/index.php">行動版</a>&gt;讓操作更方便。&nbsp;||    	          	      
+    	      ||&nbsp;<a href="https://www.cac.edu.tw/cacportal/PIMS_PrivateStatement/PIMS_PS_readfile.php?fileid1=CAC1001&fileid2=new" target="_blank">本會網站資訊安全及隱私權政策聲明</a>&nbsp;||
     		  </td>    		
     		</tr>
     		<tr>

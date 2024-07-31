@@ -42,19 +42,17 @@ img{
 	border-left-color: #CCCCCC;
 }
 a:link {
-	color: #6983C9;
+	/* color: #6983C9; */
 	text-decoration: none;
 }
 a:visited {
-
-	color: #6983C9;
+	/* color: #2dc9b6; */
 	text-decoration: none;
-}
+} 
 a:hover {
-
-
-	color: #1AB3B9;
-	text-decoration: underline;
+	/* color: #219184; */
+	/* text-decoration: underline; */
+	font-weight: bold;
 }
 .a1:link {
 	color: #0000cd;
@@ -172,15 +170,16 @@ a:hover {
 	height:8px;
 }
 
-/*
-.TESTLINK {		
-	font-size: 14pt;
-	color: #FF0000;	
-	font-weight:bold;
+.login-button {
+	display: inline-block;
+	background-color: rgb(255, 0, 0);
+	color: rgb(255, 255, 255);
+	width: 146px;
+	height: 41px;
+	line-height: 40px; /* 使文字在按鈕內垂直居中 */
+	font-size: 24px;
+	font-family: "標楷體", sans-serif;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
 }
-
-.TESTLINK a:link {color: blue }
-.TESTLINK a:visited {color: blue}
-.TESTLINK a:active {color: blue}
-.TESTLINK a:hover {color: #009900}
-*/
