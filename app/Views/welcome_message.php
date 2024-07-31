@@ -53,10 +53,10 @@ function MM_preloadImages() { //v3.0
 
 </head>
 
-<body bgcolor="#FFFFFF" text="#000000" onload="MM_preloadImages('./images/form_top_04_home.jpg','./images/form_top_05_star.jpg',
-	'./images/main_menu_01.jpg','./images/main_menu_02.jpg','./images/main_menu_03.jpg','./images/main_menu_04.jpg',
-	'./images/main_menu_05.jpg','./images/main_menu_06.jpg','./images/main_menu_07.jpg','./images/main_menu_08.jpg',
-	'./images/main_menu_09.jpg','./images/main_menu_10.jpg');">
+<body bgcolor="#FFFFFF" text="#000000" onload="MM_preloadImages('../images/form_top_04_home.jpg','../images/form_top_05_star.jpg',
+	'../images/main_menu_01.jpg','../images/main_menu_02.jpg','../images/main_menu_03.jpg','../images/main_menu_04.jpg',
+	'../images/main_menu_05.jpg','../images/main_menu_06.jpg','../images/main_menu_07.jpg','../images/main_menu_08.jpg',
+	'../images/main_menu_09.jpg','../images/main_menu_10.jpg');">
  
 <table width="1024" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr><td colspan="4">
@@ -105,20 +105,20 @@ function MM_preloadImages() { //v3.0
 <div id="FWTableContainer130922227">
 <table style="display: inline-table;" border="0" cellpadding="0" cellspacing="0" width="146">
   
-  <tr><td><a href="/login/" class="login-button">使用者登入</a></td></tr>
-  <!-- <a href="/login/" ><img name="rightmenu_r1_c0" src="./images/personal_pass_bar_1.png" id="rightmenu_r1_c0" alt="" /></a> -->
-  <!-- <tr><td><a href="covid_19_area.php" ><img name="rightmenu_r1_c1" src="./images/covid_19_response.jpg" id="rightmenu_r1_c1" alt="" /></a></td></tr>  -->
-  <tr><td><img name="rightmenu_r1_c1" src="./images/main_menu_title.jpg" id="rightmenu_r1_c1" alt="" /></td></tr>
-  <tr><td><a href="index.php" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829223939_0', 'MMMenu0829223939_0',150,0,'rightmenu_r2_c1');MM_swapImage('rightmenu_r2_c1','','./images/main_menu_01_up.jpg',1);"><img name="rightmenu_r2_c1" src="./images/main_menu_01.jpg" border="0" id="rightmenu_r2_c1" alt="" /></a></td></tr>  
-  <tr><td><a href="regulation.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r3_c1','','./images/main_menu_02_up.jpg',1);"><img name="rightmenu_r3_c1" src="./images/main_menu_02.jpg" border="0" id="rightmenu_r3_c1" alt="" /></a></td></tr>  
-  <tr><td><a href="schedule.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r4_c1','','./images/main_menu_03_up.jpg',1);"><img name="rightmenu_r4_c1" src="./images/main_menu_03.jpg" border="0" id="rightmenu_r4_c1" alt="" /></a></td></tr>
-  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224320_1', 'MMMenu0829224320_1',150,0,'rightmenu_r5_c1');MM_swapImage('rightmenu_r5_c1','','./images/main_menu_04_up.jpg',1);"><img name="rightmenu_r5_c1" src="./images/main_menu_04.jpg" border="0" id="rightmenu_r5_c1" alt="" /></a></td></tr>
-  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224417_2', 'MMMenu0829224417_2',150,0,'rightmenu_r6_c1');MM_swapImage('rightmenu_r6_c1','','./images/main_menu_05_up.jpg',1);"><img name="rightmenu_r6_c1" src="./images/main_menu_05.jpg" border="0" id="rightmenu_r6_c1" alt="" /></a></td></tr>
-  <tr><td><a href="help_vulnerable.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r11_c1','','./images/main_menu_10_up.jpg',1);"><img name="rightmenu_r11_c1" src="./images/main_menu_10.jpg" border="0" id="rightmenu_r11_c1" alt="" /></a></td></tr>
-  <tr><td><a href="stat_2.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r7_c1','','./images/main_menu_06_up.jpg',1);"><img name="rightmenu_r7_c1" src="./images/main_menu_06.jpg" border="0" id="rightmenu_r7_c1" alt="" /></a></td></tr>
-  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224521_3', 'MMMenu0829224521_3',150,0,'rightmenu_r8_c1');MM_swapImage('rightmenu_r8_c1','','./images/main_menu_07_up.jpg',1);"><img name="rightmenu_r8_c1" src="./images/main_menu_07.jpg" border="0" id="rightmenu_r8_c1" alt="" /></a></td></tr>
-  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224604_4', 'MMMenu0829224604_4',150,0,'rightmenu_r9_c1');MM_swapImage('rightmenu_r9_c1','','./images/main_menu_08_up.jpg',1);"><img name="rightmenu_r9_c1" src="./images/main_menu_08.jpg" border="0" id="rightmenu_r9_c1" alt="" /></a></td></tr>  
-  <tr><td><a href="history_statistics.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r10_c1','','./images/main_menu_09_up.jpg',1);"><img name="rightmenu_r10_c1" src="./images/main_menu_09.jpg" border="0" id="rightmenu_r10_c1" alt="" /></a></td></tr>  
+  <tr><td><a href="/home/login/" class="login-button">使用者登入</a></td></tr>
+  <!-- <a href="/login/" ><img name="rightmenu_r1_c0" src="../images/personal_pass_bar_1.png" id="rightmenu_r1_c0" alt="" /></a> -->
+  <!-- <tr><td><a href="covid_19_area.php" ><img name="rightmenu_r1_c1" src="../images/covid_19_response.jpg" id="rightmenu_r1_c1" alt="" /></a></td></tr>  -->
+  <tr><td><img name="rightmenu_r1_c1" src="../images/main_menu_title.jpg" id="rightmenu_r1_c1" alt="" /></td></tr>
+  <tr><td><a href="index.php" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829223939_0', 'MMMenu0829223939_0',150,0,'rightmenu_r2_c1');MM_swapImage('rightmenu_r2_c1','','./images/main_menu_01_up.jpg',1);"><img name="rightmenu_r2_c1" src="../images/main_menu_01.jpg" border="0" id="rightmenu_r2_c1" alt="" /></a></td></tr>  
+  <tr><td><a href="regulation.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r3_c1','','../images/main_menu_02_up.jpg',1);"><img name="rightmenu_r3_c1" src="../images/main_menu_02.jpg" border="0" id="rightmenu_r3_c1" alt="" /></a></td></tr>  
+  <tr><td><a href="schedule.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r4_c1','','../images/main_menu_03_up.jpg',1);"><img name="rightmenu_r4_c1" src="../images/main_menu_03.jpg" border="0" id="rightmenu_r4_c1" alt="" /></a></td></tr>
+  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224320_1', 'MMMenu0829224320_1',150,0,'rightmenu_r5_c1');MM_swapImage('rightmenu_r5_c1','','../images/main_menu_04_up.jpg',1);"><img name="rightmenu_r5_c1" src="../images/main_menu_04.jpg" border="0" id="rightmenu_r5_c1" alt="" /></a></td></tr>
+  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224417_2', 'MMMenu0829224417_2',150,0,'rightmenu_r6_c1');MM_swapImage('rightmenu_r6_c1','','../images/main_menu_05_up.jpg',1);"><img name="rightmenu_r6_c1" src="../images/main_menu_05.jpg" border="0" id="rightmenu_r6_c1" alt="" /></a></td></tr>
+  <tr><td><a href="help_vulnerable.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r11_c1','','../images/main_menu_10_up.jpg',1);"><img name="rightmenu_r11_c1" src="../images/main_menu_10.jpg" border="0" id="rightmenu_r11_c1" alt="" /></a></td></tr>
+  <tr><td><a href="stat_2.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r7_c1','','../images/main_menu_06_up.jpg',1);"><img name="rightmenu_r7_c1" src="../images/main_menu_06.jpg" border="0" id="rightmenu_r7_c1" alt="" /></a></td></tr>
+  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224521_3', 'MMMenu0829224521_3',150,0,'rightmenu_r8_c1');MM_swapImage('rightmenu_r8_c1','','../images/main_menu_07_up.jpg',1);"><img name="rightmenu_r8_c1" src="../images/main_menu_07.jpg" border="0" id="rightmenu_r8_c1" alt="" /></a></td></tr>
+  <tr><td><a href="javascript:;" onmouseout="MM_swapImgRestore();MM_menuStartTimeout(1000);" onmouseover="MM_menuShowMenu('MMMenuContainer0829224604_4', 'MMMenu0829224604_4',150,0,'rightmenu_r9_c1');MM_swapImage('rightmenu_r9_c1','','../images/main_menu_08_up.jpg',1);"><img name="rightmenu_r9_c1" src="../images/main_menu_08.jpg" border="0" id="rightmenu_r9_c1" alt="" /></a></td></tr>  
+  <tr><td><a href="history_statistics.php" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('rightmenu_r10_c1','','../images/main_menu_09_up.jpg',1);"><img name="rightmenu_r10_c1" src="../images/main_menu_09.jpg" border="0" id="rightmenu_r10_c1" alt="" /></a></td></tr>  
 </table>
 <div id="MMMenuContainer0829223939_0">
 	<div id="MMMenu0829223939_0" onmouseout="MM_menuStartTimeout(1000);" onmouseover="MM_menuResetTimeout();">
