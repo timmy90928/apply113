@@ -13,7 +13,7 @@ class Post extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'username', 'password', 'origin_school'
+        'username', 'password', 'origin_school', 'subject', 'phone_number', 'email', 'address'
     ];
 
     protected bool $allowEmptyInserts = false;

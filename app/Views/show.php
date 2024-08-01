@@ -1,3 +1,11 @@
-<h3><?php echo $posts['username']?></h3>
-<br>
-<h5><?php echo $posts['password']?></h5>
+<?php
+if(!empty($posts)){
+    echo '<h1> User data </h1>';
+    echo '<table>';
+    foreach($posts as $key => $value){
+        echo "<tr><td>$key</td><td>$value</td></tr>";
+    }
+    echo '</table>';
+}
+?>
+
