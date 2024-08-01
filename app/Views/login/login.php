@@ -25,6 +25,17 @@
     window.open("/", "_parent");
   	// formObj.submit();
    }
+   String.prototype.hashCode = function() {
+    var hash = 0, i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+        chr   = this.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+    };
+    console.log("assdsddsadasdasdsadsad".hashCode())
 </script>
 
 <body style='font-size:12pt;font-family:標楷體' onload=FormLoad()> 
