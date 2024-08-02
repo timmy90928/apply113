@@ -50,14 +50,19 @@ class Home extends BaseController
             "subject"	    => $this->request->getVar('department'),
             "status"	    => '報名中',
         ];
-        
+        $isValidFormat = $model->checkTWIDFormat($data['ID_number']);
+        $exists = $model->checkIfExists('ID_number', $data['ID_number']);
+        if ($isValidFormat == false) {
+            echo '<script>alert("請檢查身分證格式");</script>';
+            return view('register/sign_up_information');
+        }
+        if ($exists) {
+            echo '<script>alert("請檢查是否有重複申請");</script>';
+            return view('register/sign_up_information');
+        }
         $YN = $model->save($data);
-        // echo $YN;
         header("Location: /home/show/".$data['ID_number']);
         exit();
-
-        echo '<script>alert("請檢查是否有重複申請");</script>';
-
     }
     public function sign_up_information(): string
     {
