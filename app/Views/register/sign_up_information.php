@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>報名系統</h1>
-        <form action="submit.php" method="POST">
+        <form action="/Home/store" method="POST">
             <table class="resume-table">
                 <tr>
                     <td class="resume-label">姓名：</td>

@@ -33,6 +33,28 @@ class Home extends BaseController
         ];
         return view('show',$data);
     }
+    public function store()
+    {
+        $model = new Post();
+        $data = [
+            "username"	    => 'user1',
+            "Permissions"	=> 'user',
+            "password"	    => 'asd123',
+            "name"	        => $this->request->getVar('name'),
+            "gender"	    => $this->request->getVar('gender'),
+            "ID_number"	    => $this->request->getVar('id_number'),
+            "address"	    => $this->request->getVar('address'),
+            "phone_number"	=> $this->request->getVar('phone'),
+            "email"	        => $this->request->getVar('email'),
+            "origin_school"	=> $this->request->getVar('school'),
+            "subject"	    => $this->request->getVar('department'),
+            "status"	    => '報名中',
+        ];
+        
+        $YN = $model->save($data);
+        echo $YN;
+        // return redirect('/');
+    }
     public function sign_up_information(): string
     {
         return view('register/sign_up_information');
