@@ -30,4 +30,8 @@ class Home extends BaseController
         ];
         return view('show',$data);
     }
+    public function sign_up_information(): string
+    {
+        return view('register/sign_up_information');
+    }
 }

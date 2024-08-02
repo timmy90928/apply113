@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.resume-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.resume-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.resume-table .resume-label {
+    text-align: right;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    width: 200px;
+}
+
+.resume-table input[type="text"],
+.resume-table input[type="tel"],
+.resume-table input[type="email"],
+.resume-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.resume-table input[type="radio"] {
+    margin-right: 5px;
+}
+
+.submit-row {
+    text-align: center; /* Center align the content in the row */
+}
+
+button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
