@@ -43,8 +43,8 @@
                     <td>
                         <select id="school" name="school" required>
                             <option value="" disabled selected>請選擇學校</option>
-                            <option value="school1">中正大學</option>
-                            <option value="school2">中央大學</option>
+                            <option value="CCU">中正大學</option>
+                            <option value="NCU">中央大學</option>
                             <option value="school3">中山大學</option>
                             <option value="school3">中興大學</option>
                             <option value="school3">台灣大學</option>
@@ -64,8 +64,8 @@
                     <td>
                         <select id="department" name="department" required>
                             <option value="" disabled selected>請選擇科系</option>
-                            <option value="department1">電機系</option>
-                            <option value="department2">資工系</option>
+                            <option value="EE">電機系</option>
+                            <option value="CS">資工系</option>
                             <option value="department3">醫學系</option>
                             <option value="department3">機械系</option>
                             <option value="department3">資管系</option>

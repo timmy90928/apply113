@@ -28,8 +28,8 @@ class Home extends BaseController
     public function show($post_id){
         $model = new Post();
         $data = [
-            'posts' => $model->find($post_id) 
-            // 'posts' => $model->where('username', $post_id)->findAll()
+            // 'posts' => $model->find($post_id) 
+            'posts' => $model->where('id_number', $post_id)->findAll()
         ];
         return view('show',$data);
     }
@@ -52,8 +52,12 @@ class Home extends BaseController
         ];
         
         $YN = $model->save($data);
-        echo $YN;
-        // return redirect('/');
+        // echo $YN;
+        header("Location: /home/show/".$data['ID_number']);
+        exit();
+
+        echo '<script>alert("請檢查是否有重複申請");</script>';
+
     }
     public function sign_up_information(): string
     {
