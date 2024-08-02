@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>報名系統</title>
-    <link rel="stylesheet" href="/css/sign_up_information.css">
+    <link rel="stylesheet" href="/include/sign_up_information.css">
 </head>
 <body>
     <div class="container">

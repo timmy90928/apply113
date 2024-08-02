@@ -1,13 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
@@ -20,9 +19,14 @@ h1 {
     color: #333;
 }
 
+form {
+    width: 100%;
+}
+
 .resume-table {
     width: 100%;
     border-collapse: collapse;
+    border-spacing: 0 15px;
 }
 
 .resume-table td {
