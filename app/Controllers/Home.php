@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\Post;
+use App\Models\Permission;
+use App\Models\RegisterStatus;
 
 class Home extends BaseController
 {
@@ -26,7 +28,8 @@ class Home extends BaseController
     public function show($post_id){
         $model = new Post();
         $data = [
-            'posts' => $model->find($post_id)
+            'posts' => $model->find($post_id) 
+            // 'posts' => $model->where('username', $post_id)->findAll()
         ];
         return view('show',$data);
     }

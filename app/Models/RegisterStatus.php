@@ -4,17 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Post extends Model
+class RegisterStatus extends Model
 {
-    protected $table            = 'apply113';
+    protected $table            = 'register_status';
     protected $primaryKey       = 'ID';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'username', 'password', 'Permissions','ID_number', 'origin_school', 'subject', 'phone_number', 'email', 'address', 'status'
-    ];
+    protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
