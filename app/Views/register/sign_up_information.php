@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>報名系統</title>
+    <title>個人資料填寫</title>
     <link rel="stylesheet" href="/include/sign_up_information.css">
 </head>
 <body>
     <div class="container">
-        <h1>報名系統</h1>
-        <form action="/Home/store" method="POST">
+        <h1>個人資料填寫</h1>
+        <form action="/home/sign_up_school" method="POST">
             <table class="resume-table">
                 <tr>
                     <td class="resume-label">姓名：</td>
@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="submit-row">
-                        <button type="submit">提交報名並進入下一頁</button>
+                        <button type="submit">確認資料並進入下一頁</button>
                     </td>
                 </tr>
             </table>
