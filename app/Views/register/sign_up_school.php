@@ -47,12 +47,30 @@
                     <option value="Hist">歷史系</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="pdf_file">上傳書審文件：</label>
-                <input type="file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+            <button type="button" id="add_wishlist">新增志願</button>
+            <div id="wishlist_container">
             </div>
             <button type="submit">提交報名</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var wishlistCount = 0;
+
+            document.getElementById('add_wishlist').addEventListener('click', function() {
+                wishlistCount++;
+
+                var school = document.getElementById('school').options[document.getElementById('school').selectedIndex].text;
+                var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
+                var wishlistItem = document.createElement('div');
+                wishlistItem.classList.add('wishlist-item');
+                wishlistItem.innerHTML = '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
+                                        '<span class="school">' + school + '</span>' +
+                                        '<span class="department">' + department + '</span>';
+                document.getElementById('wishlist_container').appendChild(wishlistItem);
+            });
+        });
+    </script>
 </body>
 </html>
