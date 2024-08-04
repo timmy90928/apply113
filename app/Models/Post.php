@@ -80,4 +80,17 @@ class Post extends Model
             return false;
         }
     }
+
+    public function isNameEmptyForIdNumber($idNumber)
+    {
+        $query = $this->where('ID_number', $idNumber)->first(); // Assuming there is only one record for this ID_number
+
+        if (!$query) {
+            return true; // Record not found
+        }
+
+        $name = $query['name'];
+
+        return empty($name);
+    }
 }

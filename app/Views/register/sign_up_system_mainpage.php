@@ -1,3 +1,9 @@
+<?php 
+use App\Models\Post;
+$model = new Post();
+$ID_number = 'Q123456789';
+?>
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -23,13 +29,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var isBasicInfoFilled = false; // 依資料庫做判定，目前先用false為例
+            var isBasicInfoFilled = "<?php echo $model->isNameEmptyForIdNumber($ID_number);?>"; // 依資料庫做判定，目前先用false為例
 
             var registrationProgressElement = document.getElementById('registration-progress');
             if (isBasicInfoFilled) {
                 registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。';
                 var dataLink = document.createElement('a');
-                dataLink.href = '/Home/store';
+                dataLink.href = "<?php echo '/home/show/'.$ID_number;?>"; 
                 dataLink.textContent = '查看資料表';
                 registrationProgressElement.appendChild(document.createElement('br'));
                 registrationProgressElement.appendChild(dataLink);
