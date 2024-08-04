@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>報名系統</h1>
-        <form action="/sign_up_school" method="POST" enctype="multipart/form-data">
+        <form action="/home/sign_up_system_mainpage" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="school">欲報名之學校：</label>
                 <select id="school" name="school" required>
