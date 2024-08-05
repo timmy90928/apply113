@@ -4,21 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>申請入學-大學甄選入學委員會</title>
-        <link rel="stylesheet" href="public\main\main.css">
+        <link rel="stylesheet" href="../main/main.css">
     </head>
     <body>
         <nav>
             <div class="nav-container">
                 <div class="nav-links">
                     <div class="nav-links-inner">
-                        <a href="announcement.html" class="active">訊息公告</a>
-                        <a href="schedule.html">重要時程</a>
-                        <a href="statistics.html">統計資料</a>
-                        <a href="reference.html">相關網站</a>
+                        <a href="/Home" class="active">訊息公告</a>
+                        <a href="/Home/schedule">重要時程</a>
+                        <a href="/Home/statistics">統計資料</a>
+                        <a href="/Home/reference">相關網站</a>
                     </div>
                 </div>
                 <div class="login-button">
-                    <a href="#">登入</a>
+                    <a href="/Home/login">登入</a>
                 </div>
             </div>
         </nav>
@@ -77,6 +77,6 @@
             <p>621301嘉義縣民雄鄉大學路一段168號 (05)2721799</p>
         </footer>
 
-        <script src="public\main\main.js"></script>
+        <script src="../main/main.js"></script>
     </body>
 </html>

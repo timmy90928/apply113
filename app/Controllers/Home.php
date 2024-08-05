@@ -15,7 +15,19 @@ class Home extends BaseController
         ];
         // echo count($data['posts']);
         // return view('welcome_message',$data);
-        return view('welcome_message');
+        return view('main_page/announcement');
+    }
+    public function schedule(): string
+    {
+        return view('main_page/schedule');
+    }
+    public function statistics(): string
+    {
+        return view('main_page/statistics');
+    }
+    public function reference(): string
+    {
+        return view('main_page/reference');
     }
     public function login(): string
     {
