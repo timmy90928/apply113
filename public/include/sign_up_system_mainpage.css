@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.status-table, .wishlist-section {
+    margin-bottom: 30px;
+}
+
+.status-table h2, .wishlist-section h2 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.status-table p, .wishlist-section p {
+    margin-bottom: 10px;
+}
+
+.status-table a, .wishlist-section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.status-table a:hover, .wishlist-section a:hover {
+    text-decoration: underline;
+}
+
+form {
+    width: 100%;
+}
+
+.resume-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 15px;
+}
+
+.resume-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.resume-table .resume-label {
+    text-align: right;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    width: 200px;
+}
+
+.resume-table input[type="text"],
+.resume-table input[type="tel"],
+.resume-table input[type="email"],
+.resume-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.resume-table input[type="radio"] {
+    margin-right: 5px;
+}
+
+.submit-row {
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
