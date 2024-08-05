@@ -11,7 +11,7 @@
             <div class="nav-container">
                 <div class="nav-links">
                     <div class="nav-links-inner">
-                        <a href="/Home" class="active">訊息公告</a>
+                        <a href="/Home" class="home-link">訊息公告</a>
                         <a href="/Home/schedule">重要時程</a>
                         <a href="/Home/statistics">統計資料</a>
                         <a href="/Home/reference">相關網站</a>
