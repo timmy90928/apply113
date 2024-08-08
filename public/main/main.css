@@ -55,35 +55,29 @@ nav {
     white-space: nowrap;
 }
 
-.nav-links a:hover {
-    text-decoration: underline;
-    background-color: transparent;
+.nav-links a:hover, .login-button a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.nav-right {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+.active {
+    background-color: #6f93fe;
 }
 
-.nav-right a {
+.login-button {
+    margin-left: auto;
+}
+
+.login-button a {
     color: white;
     text-align: center;
-    padding: 18px 10px 14px 10px;
+    padding: 14px 16px;
     text-decoration: none;
-    margin: 0 25px;
     white-space: nowrap;
 }
 
-.nav-right a:hover {
-    text-decoration: underline;
-    background-color: transparent;
+.login-button a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
-
-/* .active {
-    background-color: #6f93fe;
-} */
 
 header {
     background-color: #f2f2f2;
@@ -103,12 +97,6 @@ header h1 span {
     font-weight: bold;
     color: #6f93fe;
     margin-top: 10px;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-    background-color: white;
 }
 
 .article-container {
@@ -156,4 +144,32 @@ footer {
 footer p {
     color: white;
     margin: 0;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  width: 50%;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f5f5f5;
+}
+
+table tr td[style="color: red;"] {
+  color: red !important;
+  font-weight: bold;
 }
