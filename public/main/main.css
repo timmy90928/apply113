@@ -55,28 +55,30 @@ nav {
     white-space: nowrap;
 }
 
-.nav-links a:hover, .login-button a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+.nav-links a:hover {
+    text-decoration: underline;
+    background-color: transparent;
 }
 
-.active {
-    background-color: #6f93fe;
+.nav-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.login-button {
-    margin-left: auto;
-}
-
-.login-button a {
+.nav-right a {
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 10px 14px 10px;
     text-decoration: none;
+    margin: 0 25px;
     white-space: nowrap;
 }
 
-.login-button a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+.nav-right a:hover {
+    text-decoration: underline;
+    background-color: transparent;
 }
 
 header {
