@@ -3,7 +3,9 @@
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+
 <title>登入</title>
+
 <link rel="stylesheet" href="../include/common_style.css">
 <script language='javascript'>
     function FormLoad()
@@ -41,7 +43,9 @@
         <div class="notice">
             ※請輸入身分證與密碼
         </div>
+
         <form action="/Home/verify/login" method="post">
+
             <table class="form-table">
                 <tr>
                     <td class='form-label'>身分證：</td>

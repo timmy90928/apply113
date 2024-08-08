@@ -47,13 +47,16 @@
             <div class='center'>
                 <div class="g-recaptcha" data-sitekey="6Lc8lCEqAAAAAJDu4UK4nk78JUJzFQXvvRmEipuW" style="margin: 10px auto;"></div>
                 <input type="hidden" name="g-captcha-response" id="g-captcha-response">
+
                 <input type='submit' value='提交'>
                 <input type='reset' value='重設'>
             </div>
         </form>
     </div>
         
+
 <?php  include '../app/views/footer.php'?>
+
 </body>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </html>

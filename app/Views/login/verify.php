@@ -1,14 +1,15 @@
 <?php
-
 function error($msg){
     echo '
     <script>
         alert("' . $msg . '");
+
         window.onload = function() {
             window.history.back();
         };
     </script>';
 }
+
 function toURL($url){
     header("Location: $url");
     exit();
@@ -78,6 +79,5 @@ switch ($method) {
         error("Error: method");
         break;
 }
-
 
 ?>

@@ -98,5 +98,6 @@ class Home extends BaseController
             'method' => $method
         ];
         return view('login/verify',$data);
+
     }
 }
