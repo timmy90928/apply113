@@ -4,42 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人資料填寫</title>
-    <link rel="stylesheet" href="/include/sign_up_information.css">
+    <link rel="stylesheet" href="../include/common_style.css">
+    <style>
+        .gender-options {
+            display: flex !important;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gender-options label {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .gender-options input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
 </head>
+<?php include '../app/views/header.php'?>
 <body>
     <div class="container">
         <h1>個人資料填寫</h1>
         <form action="/home/sign_up_school" method="POST">
-            <table class="resume-table">
+            <table class="form-table">
                 <tr>
-                    <td class="resume-label">姓名：</td>
+                    <td class="form-label">姓名：</td>
                     <td><input type="text" id="name" name="name" required></td>
                 </tr>
                 <tr>
-                    <td class="resume-label">性別：</td>
-                    <td>
-                        <label><input type="radio" id="gender_male" name="gender" value="male" required> 男性</label>
-                        <label><input type="radio" id="gender_female" name="gender" value="female" required> 女性</label>
+                    <td class="form-label">性別：</td>
+                    <td class="gender-options">
+                        <label><input type="radio" id="gender_male" name="gender" value="male" required> 男</label>
+                        <label><input type="radio" id="gender_female" name="gender" value="female" required> 女</label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="resume-label">身份證字號：</td>
+                    <td class="form-label">身份證字號：</td>
                     <td><input type="text" id="id_number" name="id_number" required></td>
                 </tr>
                 <tr>
-                    <td class="resume-label">地址：</td>
+                    <td class="form-label">地址：</td>
                     <td><input type="text" id="address" name="address" required></td>
                 </tr>
                 <tr>
-                    <td class="resume-label">電話：</td>
+                    <td class="form-label">電話：</td>
                     <td><input type="tel" id="phone" name="phone" required></td>
                 </tr>
                 <tr>
-                    <td class="resume-label">電子信箱：</td>
+                    <td class="form-label">電子信箱：</td>
                     <td><input type="email" id="email" name="email" required></td>
                 </tr>
                 <tr>
-                    <td class="resume-label">現在就讀學校：</td>
+                    <td class="form-label">現在就讀學校：</td>
                     <td>
                         <select id="school" name="school" required>
                             <option value="" disabled selected>請選擇學校</option>
@@ -60,7 +79,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="resume-label">現在就讀科系：</td>
+                    <td class="form-label">現在就讀科系：</td>
                     <td>
                         <select id="department" name="department" required>
                             <option value="" disabled selected>請選擇科系</option>
@@ -80,12 +99,8 @@
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2" class="submit-row">
-                        <button type="submit">確認資料並進入下一頁</button>
-                    </td>
-                </tr>
             </table>
+            <div class='center'><button type="submit">確認資料並進入下一頁</button></div>
         </form>
     </div>
 </body>

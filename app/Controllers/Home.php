@@ -88,4 +88,12 @@ class Home extends BaseController
     {
         return view('register/sign_up_system_mainpage');
     }
+    public function apply_account(): string
+    {
+        return view('login/apply_account');
+    }
+    public function verify(): string
+    {
+        return view('login/verify');
+    }
 }
