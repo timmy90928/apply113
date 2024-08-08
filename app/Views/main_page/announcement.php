@@ -17,8 +17,8 @@
                         <a href="/Home/reference">相關網站</a>
                     </div>
                 </div>
-                <div class="nav-right">
-                    <a href="/Home/login" class="login-link">登入</a>
+                <div class="login-button">
+                    <a href="/Home/login">登入</a>
                 </div>
             </div>
         </nav>

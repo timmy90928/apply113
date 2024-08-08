@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a, .nav-right a');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const homeLink = document.querySelector('.home-link');
-
+    
     // 獲取當前頁面的名稱
     const currentPage = window.location.pathname.split("/").pop();
 
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this !== homeLink) {
                 setActiveLink(this);
             } else {
+                // 如果點擊的是「訊息公告」，清除其他按鈕的活動狀態
                 navLinks.forEach(navLink => navLink.classList.remove('active'));
                 localStorage.removeItem('activeLink');
             }
