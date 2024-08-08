@@ -92,8 +92,12 @@ class Home extends BaseController
     {
         return view('login/apply_account');
     }
-    public function verify(): string
+    public function verify($method): string
     {
-        return view('login/verify');
+        $data = [
+            'method' => $method
+        ];
+        return view('login/verify',$data);
+
     }
 }
