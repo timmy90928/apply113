@@ -1,0 +1,110 @@
+ /* <link rel="stylesheet" href="../include/common_style.css">  */
+ body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+}
+.form-table {
+    /* <table class="form-table"></table> */
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 15px;
+    margin-bottom: 10px;
+}
+.form-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.form-table .form-label {
+    /* <td class='form-label'></td> */
+    text-align: right;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    width: 200px;
+}
+.form-table input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+    font-family: '標楷體', Arial, sans-serif;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center; /* Center align the content in the row */
+    margin: 10px 10%;
+}
+
+input[type="button"],
+input[type="submit"],
+button {
+    background-color: #007bff;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="reset"] {
+    background-color: #cc0000;
+}
+input[type="reset"]:hover {
+    background-color: #990000;
+}
+
+.center {
+    /* <div class="center"></div> */
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center; /* vertically*/
+}
+
+.notice {
+    /* <div class="notice"></div> */
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

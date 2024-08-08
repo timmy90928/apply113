@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 <title>大學甄選入學委員會</title>
+<link rel="stylesheet" href="../include/common_style.css">
 <script language='javascript'>
     function FormLoad()
     {
@@ -15,11 +16,13 @@
         
         //scroll(); 
     }		
-   
+    function ToApplyAccount() {
+        window.location.href = '/Home/apply_account'; // 替换为你想跳转的网页地址
+    }
    function check(formObj) {
    //檢查欄位是否填寫
    	if(formObj.USER.value=='' || formObj.PSWD.value==''){
-   		alert('請輸入帳號和密碼！');
+   		alert('請輸入身分證和密碼！');
    		return false;
    	}
     window.open("/", "_parent");
@@ -38,36 +41,31 @@
     console.log("assdsddsadasdasdsadsad".hashCode())
 </script>
 
-<body style='font-size:12pt;font-family:標楷體' onload=FormLoad()> 
-<div align='center'>
-<h2>113學年度大學申請入學招生</h2>
-<h2>大學繁星推薦、申請入學招生作業檢討會會議資料</h2>
-<center><font color=red>※下載所需帳號及密碼，為校系分則登錄之帳號、密碼。</font></center>
-<br>
-<form name='form1' method='post'>
-<table width='500' bgcolor='#ffffff' cellpadding='5' style='border:3px double #006633'>
-<tr>
-	<td style='background-color:#0000cc;color:#ffffff'>請輸入帳號密碼：</td>
-</tr>
-<tr>
-	<td align='center'><br>
-		
-		<span style='color:#cc0000;font-weight:bold'>&gt;&gt;</span>帳號：
-		<input name='USER' type='text' id='USER' size='18' maxlength='18'><br><br>
-		<span style='color:#cc0000;font-weight:bold'>&gt;&gt;</span>密碼：
-		<input name='PSWD' type='password' id='PSWD' size='20' maxlength='20'><br><br>
-		
-	</td>
-</tr>
-</table>
-<br>
-
-<input type='button' name='Submit' value='登入' onClick='check(document.form1)' style='margin-center:160px; width:80px'>
-<input type='reset' value='重設'>
-<input type='button' name='Submit' value='申請帳號' onClick='check(document.form1)' style='margin-center:160px; width:80px'>
-
-</form>
-</div>
+<?php include '../app/views/header.php' ?>
+<body>
+    <div class="container">
+        <h1>登入系統</h1>
+        <div class="notice">
+            ※請輸入身分證與密碼
+        </div>
+        <form name='form1' method='post'>
+            <table class="form-table">
+                <tr>
+                    <td class='form-label'>身分證：</td>
+                    <td><input name='USER' type='text' id='USER' size='18' maxlength='18'></td>
+                </tr>
+                <tr>
+                    <td class='form-label'>密碼：</td>
+                    <td><input name='PSWD' type='password' id='PSWD' size='20' maxlength='20'></td>
+                </tr>
+            </table>
+            <div class="center">
+                <input type='button' name='Submit' value='登入' onClick='check(document.form1)'>
+                <input type='reset' value='重設'>
+                <input type='button' name='Submit' value='申請帳號' onClick='ToApplyAccount()'>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
 
