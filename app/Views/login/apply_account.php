@@ -16,6 +16,9 @@
     
     <div class="container">
         <h1>申請帳號</h2>
+        <div class="notice">
+            ※ 身分證將做為日後登入之帳號，電子信箱將使用於忘記密碼與通知。(身分證與姓名申請後皆不可修改)
+        </div>
         <form action="/Home/verify/apply" method="post">
             <table class="form-table">
                 <tr>
@@ -29,10 +32,6 @@
                 <tr>
                     <td class='form-label' for='email'>電子信箱：</td>
                     <td><input name='email' type='email' id='email' size='40' maxlength='50' required></td>
-                </tr>
-                <tr>
-                    <td class='form-label' for='phone'>手機號碼：</td>
-                    <td><input name='phone' type='tel' id='phone' size='40' maxlength='50' required></td>
                 </tr>
                 <tr>
                     <td class='form-label' for='password'>密碼：</td>

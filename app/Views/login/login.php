@@ -41,7 +41,7 @@
     <div class="container">
         <h1>登入系統</h1>
         <div class="notice">
-            ※請輸入身分證與密碼
+            ※請輸入身分證與密碼，若尚未申請帳號，請在右下角點選申請帳號。
         </div>
 
         <form action="/Home/verify/login" method="post">
@@ -57,6 +57,8 @@
                 </tr>
             </table>
             <div class="center">
+                <div class="g-recaptcha" data-sitekey="6Lc8lCEqAAAAAJDu4UK4nk78JUJzFQXvvRmEipuW" style="margin: 10px auto;"></div>
+                <input type="hidden" name="g-captcha-response" id="g-captcha-response">
                 <input type='submit' value='登入'>
                 <input type='reset'  value='重設'>
                 <input type='button' name='forget_password' value='忘記密碼' onClick='ToApplyAccount()'>
@@ -65,6 +67,7 @@
         </form>
     </div>
 </body>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </html>
 
 

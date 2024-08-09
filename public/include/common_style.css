@@ -67,7 +67,7 @@ button {
     cursor: pointer;
     text-align: center; /* Center align the content in the row */
 
-    margin: 10px 10%;    
+    margin: 10px auto;    
     box-sizing: border-box;
 
 }
