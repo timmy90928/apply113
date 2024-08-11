@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>申請入學-大學甄選入學委員會</title>
+        <title>訊息公告-申請入學</title>
         <link rel="stylesheet" href="../main/main.css">
     </head>
     <body>
@@ -24,7 +24,7 @@
         </nav>
 
         <header>
-            <h1>大學入學甄選委員會<br><span>113申請入學</span></h1>
+            <h1>113學年度大學申請入學招生</h1>
         </header>
 
         <main>

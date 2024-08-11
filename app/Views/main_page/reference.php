@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>申請入學-大學甄選入學委員會</title>
+        <title>相關網站-申請入學</title>
         <link rel="stylesheet" href="../main/main.css">
     </head>
     <body>
@@ -24,11 +24,38 @@
         </nav>
 
         <header>
-            <h1>大學入學甄選委員會<br><span>113申請入學</span></h1>
+            <h1>113學年度大學申請入學招生</h1>
         </header>
 
-        <main>
-            <p>相關網站</p>
+        <main class="reference">
+            <div class="reference-container">
+                <section>
+                    <h2>招生單位</h2>
+                    <a href="https://www.jbcrc.edu.tw" target="_blank" rel="noopener noreferrer">大學招生委員會聯合會</a>
+                    <a href="https://www.uac.edu.tw" target="_blank" rel="noopener noreferrer">大學考試入學分發委員會</a>
+                    <a href="https://www.techadmi.edu.tw" target="_blank" rel="noopener noreferrer">技專校院招生策略委員會</a>
+                    <a href="https://rdrc.mnd.gov.tw/page/index" target="_blank" rel="noopener noreferrer">國軍人才招募中心</a>
+                </section>
+
+                <section>
+                    <h2>考試單位</h2>
+                    <a href="https://www.ceec.edu.tw" target="_blank" rel="noopener noreferrer">財團法人大學入學考試中心基金會</a>
+                    <a href="https://www.cape.edu.tw" target="_blank" rel="noopener noreferrer">大學術科考試委員會聯合會</a>
+                    <a href="https://www.tcte.edu.tw" target="_blank" rel="noopener noreferrer">財團法人技專校院入學測驗中心基金會</a>
+                </section>
+
+                <section>
+                    <h2>其他網站</h2>
+                    <a href="https://www.edu.tw/Default.aspx" target="_blank" rel="noopener noreferrer">教育部</a>
+                    <a href="https://depart.moe.edu.tw/ED2200/Default.aspx" target="_blank" rel="noopener noreferrer">教育部高教司</a>
+                    <a href="https://www.ccu.edu.tw" target="_blank" rel="noopener noreferrer">國立中正大學</a>
+                    <a href="https://collego.edu.tw" target="_blank" rel="noopener noreferrer">ColleGo!大學選才與高中育才輔助系統</a>
+                    <a href="https://nsdua.moe.edu.tw/#/" target="_blank" rel="noopener noreferrer">大學多元入學升學網</a>
+                    <a href="https://www.testnews.com.tw/shibao/" target="_blank" rel="noopener noreferrer">大學網路博覽會</a>
+                    <a href="https://techexpo.moe.edu.tw/search/" target="_blank" rel="noopener noreferrer">技訊網</a>
+                    <a href="https://apcs.csie.ntnu.edu.tw" target="_blank" rel="noopener noreferrer">大學程式設計先修檢測(APCS)</a>
+                </section>
+            </div>
         </main>
 
         <footer>

@@ -82,23 +82,19 @@ nav {
 }
 
 header {
-    background-color: #f2f2f2;
-    padding: 80px 0;
+    background-color: #ffffff;
+    padding: 40px 0 0px 0;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    height: 90px;
 }
 
 header h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-header h1 span {
-    display: block;
     font-size: 40px;
     font-weight: bold;
     color: #6f93fe;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .article-container {
@@ -154,6 +150,7 @@ table {
   margin: 0 auto;
   border-collapse: collapse;
   font-size: 14px;
+  margin-top: 10px;
   margin-bottom: 40px;
 }
 
@@ -174,4 +171,81 @@ table tr:hover {
 table tr td[style="color: red;"] {
   color: red !important;
   font-weight: bold;
+}
+
+.statistics {
+    max-width: 800px;
+    margin: 10px auto 30px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.statistics ol {
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.statistics li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.statistics li:last-child {
+    margin-bottom: 0;
+}
+
+/* 調整第六點的子列表 */
+.statistics ol > li > ul {
+    list-style-type: disc;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 1.5em; /* 調整這個值以對齊主列表文字 */
+}
+
+.statistics ol > li > ul > li {
+    margin-bottom: 5px;
+}
+
+.statistics ol > li > ul > li:last-child {
+    margin-bottom: 0;
+}
+
+.reference {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.reference-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.reference section {
+    margin-bottom: 20px;
+}
+
+.reference h2 {
+    color: #333;
+    border-bottom: 2px solid #6f93fe;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.reference a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.reference a:hover {
+    background-color: #f0f0f0;
 }
