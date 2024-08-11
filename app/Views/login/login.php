@@ -3,21 +3,17 @@
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-<title>大學甄選入學委員會</title>
+
+<title>登入</title>
+
 <link rel="stylesheet" href="../include/common_style.css">
 <script language='javascript'>
     function FormLoad()
     {
-        //alert(document.f1.UserName.value) 
-        //if(document.f1.UserName.value!='')	
             document.form1.USER.focus();	
-        //else
-        //	document.f1.UserName.focus();
-        
-        //scroll(); 
     }		
     function ToApplyAccount() {
-        window.location.href = '/Home/apply_account'; // 替换为你想跳转的网页地址
+        window.location.href = '/Home/apply_account';
     }
    function check(formObj) {
    //檢查欄位是否填寫
@@ -26,7 +22,6 @@
    		return false;
    	}
     window.open("/", "_parent");
-  	// formObj.submit();
    }
    String.prototype.hashCode = function() {
     var hash = 0, i, chr;
@@ -48,7 +43,9 @@
         <div class="notice">
             ※請輸入身分證與密碼
         </div>
-        <form name='form1' method='post'>
+
+        <form action="/Home/verify/login" method="post">
+
             <table class="form-table">
                 <tr>
                     <td class='form-label'>身分證：</td>
@@ -60,9 +57,10 @@
                 </tr>
             </table>
             <div class="center">
-                <input type='button' name='Submit' value='登入' onClick='check(document.form1)'>
-                <input type='reset' value='重設'>
-                <input type='button' name='Submit' value='申請帳號' onClick='ToApplyAccount()'>
+                <input type='submit' value='登入'>
+                <input type='reset'  value='重設'>
+                <input type='button' name='forget_password' value='忘記密碼' onClick='ToApplyAccount()'>
+                <input type='button' name='apply' value='申請帳號' onClick='ToApplyAccount()'>
             </div>
         </form>
     </div>

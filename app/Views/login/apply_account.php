@@ -16,7 +16,7 @@
     
     <div class="container">
         <h1>申請帳號</h2>
-        <form action="/Home/verify" method="post">
+        <form action="/Home/verify/apply" method="post">
             <table class="form-table">
                 <tr>
                     <td class='form-label' for='name'>姓名：</td>
@@ -38,16 +38,25 @@
                     <td class='form-label' for='password'>密碼：</td>
                     <td><input name='password' type='password' id='password' size='40' maxlength='20' required></td>
                 </tr>
+                <tr>
+                    <td class='form-label' for='password'>再次輸入密碼：</td>
+                    <td><input name='password_again' type='password' id='password_again' size='40' maxlength='20' required></td>
+                </tr>
             </table>
-            <div class="g-recaptcha" data-sitekey="6Lc8lCEqAAAAAJDu4UK4nk78JUJzFQXvvRmEipuW" style="margin: 10px auto;"></div>
+            
             <div class='center'>
+                <div class="g-recaptcha" data-sitekey="6Lc8lCEqAAAAAJDu4UK4nk78JUJzFQXvvRmEipuW" style="margin: 10px auto;"></div>
+                <input type="hidden" name="g-captcha-response" id="g-captcha-response">
+
                 <input type='submit' value='提交'>
                 <input type='reset' value='重設'>
             </div>
         </form>
     </div>
         
-    
+
+<?php  include '../app/views/footer.php'?>
+
 </body>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </html>
