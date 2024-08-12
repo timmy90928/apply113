@@ -100,4 +100,8 @@ class Home extends BaseController
         return view('login/verify',$data);
 
     }
+    public function wishlist(): string
+    {
+        return view('register/wishlist');
+    }
 }
