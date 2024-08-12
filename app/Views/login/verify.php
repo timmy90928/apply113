@@ -146,13 +146,24 @@ function assert_login(){
     if ($_POST['PSWD'] != $hashedPassword){alert("密碼錯誤");}
 }
 
-function send_email($to){
-    $datetime = date('YmdH');
+/**
+ * Send an email token link. The token uses the ID number and link expiration time.\
+ * Use `verify_email()` to verify the token.
+ * If using gmail: https://myaccount.google.com/apppasswords
+ * 
+ * @param string $to Email address to be sent to.
+ * @param string $idNumber ID number.
+ */
+function send_email($to, $idNumber){
+    // Token.
+    $expire = time() + 600; // Expires in 10 minutes.
+    $_hash =  hash('sha512', 'apply113' . $idNumber);
+    $token = base64_encode("{$_hash}:{$expire}");
+    $url = "http://localhost:8080/Home/verify/verify?token=" . $token;
 
-    $token = hash('sha256', urlencode($to) . $datetime); // bin2hex(random_bytes(16)); // Generate a 32 character long token.
+    // Email content.
     $subject = "Email Verification";
-    $message = "Please click the link below to verify your email:\n";
-    $message .= "http://localhost:8080/Home/verify/verify?email=" . urlencode($to) . "&token=" . $token;
+    $message = "請點擊下面的連結來驗證您的電子郵件：\n".$url;
 
     // Send email.
     $email = service('email');
@@ -162,26 +173,45 @@ function send_email($to){
     $email->setMessage($message);
 
     if ($email->send()){ // Check whether the email has been sent.
-        echo("Yes");
+        echo("已成功寄往".$to.", 請於10分鐘內設定密碼。");
     }else{
-        echo("No");
+        alert("Email寄往 $to 失敗");
     }
 }
 
-function verify_email(){
-    if (isset($_GET["email"]) && isset($_GET["token"])) {
-        $email = $_GET["email"];    // urlencode.
-        $email_token = $_GET["token"];    
-    
-        $datetime = date('YmdH');
-        $token = hash('sha256', urlencode($email) . $datetime); // bin2hex(random_bytes(16)); // Generate a 32 character long token.
+/**
+ * Use email token link to verify ID number and expiration time.\
+ * Use `send_email()` to send an email token link
+ * 
+ * @param string $email_token Token from email.
+ * @param string $idNumber ID number.
+ */
+function verify_email($email_token, $idNumber){
+    $_hash =  hash('sha512', 'apply113' . $idNumber);
+    list($email_hash, $expire) = explode(':', base64_decode($email_token,true));
 
-        if ($email_token == $token){
-            echo("驗證成功");
-        }else{
-            echo("驗證失敗");
-        }
-        
+    if ($email_hash != $_hash){ alert("請檢查身分證號碼"); }
+    if (time() > $expire){ alert("此驗證連結，已於 ".date('Y-m-d H:i:s', $expire)." 失效!"); }
+}
+
+/** Convert between URL-safe and Base64. */
+class SaveURL{
+    public $data;
+
+    public function __construct($data) {
+        $this->data = $data;
+    }
+
+    /** To URL */
+    public function encode(){
+        // Generate URL-safe Base64 Token: convert + to -, / to _, and remove padding character =.
+        return str_replace(['+', '/', '='], ['-', '_', ''], $this->data); 
+    }
+
+    /** To Base64 */
+    public function decode(){
+        // Verify URL security Base64 Token: Convert - to +, _ to /, add padding character =, and then decode.
+        return str_replace(['-', '_'], ['+', '/'], $this->data);
     }
 }
 // main
@@ -195,8 +225,7 @@ switch ($method) {
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.
         // assert_hcaptcha();
-        assert_password();
-        send_email($_POST['email']);
+        send_email($_POST['email'], $_POST['id_number']);
         // store_account();
         break;
     case "info":
@@ -204,7 +233,15 @@ switch ($method) {
         store_basic_info();
         break;
     case "verify":
-        verify_email();     // Check whether the email verification link is correct.
+        if (! isset($_GET["token"])) {alert("網址格式錯誤");}
+        $uriSafeToken = (new SaveURL($_GET["token"]))->encode();
+        toURL("/Home/password/".$uriSafeToken);
+        break;
+    case "password":
+        assert_method();    // Check whether REQUEST METHOD is POST.
+        $base64Token = (new SaveURL($_GET["token"]))->decode();
+        verify_email($base64Token, $_POST['id_number']);     // Check whether the email verification link is correct.
+        echo($_POST['id_number']."已成功設定密碼。");
         break;
     default:
         alert("Error: method");
