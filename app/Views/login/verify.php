@@ -6,7 +6,7 @@ use App\Models\Post;
  * 
  * @param string $msg Error message.
  */
-function error($msg){
+function alert($msg){
     echo '
     <script>
         alert("' . htmlspecialchars($msg, ENT_QUOTES, 'UTF-8') . '");
@@ -30,7 +30,7 @@ function toURL($url){
  */
 function assert_method(){
     if ($_SERVER["REQUEST_METHOD"] != "POST"){
-        error("REQUEST_METHOD必須為POST");
+        alert("REQUEST_METHOD必須為POST");
     };
 }
 
@@ -62,7 +62,7 @@ function assert_hcaptcha(){
     $resultJson = json_decode($result);
 
     if (!isset($resultJson->success) || !$resultJson->success) {
-        error("請勾選我不是機器人");
+        alert("請勾選我不是機器人");
         return;
     }
 }
@@ -75,7 +75,7 @@ function assert_password(){
     $passwordAgain = isset($_POST['password_again']) ? $_POST['password_again'] : '';
 
     if ($password !== $passwordAgain) {
-        error("兩次密碼不相同");
+        alert("兩次密碼不相同");
     }
 }
 
@@ -109,8 +109,8 @@ function store_account(){
     // Check.
     $isValidFormat = $model->checkTWIDFormat($data['ID_number']);
     $exists = $model->checkIfExists('ID_number', $data['ID_number']);
-    if ($isValidFormat == false) { error('請檢查身分證格式'); }
-    if ($exists) { error('請檢查是否有重複申請'); }
+    if ($isValidFormat == false) { alert('請檢查身分證格式'); }
+    if ($exists) { alert('請檢查是否有重複申請'); }
 
     // Store.
     $YN = $model->save($data);
@@ -139,31 +139,75 @@ function assert_login(){
     $model = new Post();
     $idNumber = $_POST['USER'];
     $exists = $model->checkIfExists('ID_number', $idNumber);
-    if (! $exists){ error("該身分證尚未申請帳號"); }
+    if (! $exists){ alert("該身分證尚未申請帳號"); }
     $record = $model->where('ID_number', $idNumber)->first();
     $hashedPassword = $record['password'];
     // if (password_verify($_POST['PSWD'], $hashedPassword)){error("密碼錯誤");}
-    if ($_POST['PSWD'] != $hashedPassword){error("密碼錯誤");}
+    if ($_POST['PSWD'] != $hashedPassword){alert("密碼錯誤");}
 }
 
+function send_email($to){
+    $datetime = date('YmdH');
+
+    $token = hash('sha256', urlencode($to) . $datetime); // bin2hex(random_bytes(16)); // Generate a 32 character long token.
+    $subject = "Email Verification";
+    $message = "Please click the link below to verify your email:\n";
+    $message .= "http://localhost:8080/Home/verify/verify?email=" . urlencode($to) . "&token=" . $token;
+
+    // Send email.
+    $email = service('email');
+    $email->setFrom('1888atch25@gmail.com', '113學年度大學申請入學招生委員會');
+    $email->setTo($to);
+    $email->setSubject($subject);
+    $email->setMessage($message);
+
+    if ($email->send()){ // Check whether the email has been sent.
+        echo("Yes");
+    }else{
+        echo("No");
+    }
+}
+
+function verify_email(){
+    if (isset($_GET["email"]) && isset($_GET["token"])) {
+        $email = $_GET["email"];    // urlencode.
+        $email_token = $_GET["token"];    
+    
+        $datetime = date('YmdH');
+        $token = hash('sha256', urlencode($email) . $datetime); // bin2hex(random_bytes(16)); // Generate a 32 character long token.
+
+        if ($email_token == $token){
+            echo("驗證成功");
+        }else{
+            echo("驗證失敗");
+        }
+        
+    }
+}
 // main
-assert_method(); // Globally check whether REQUEST METHOD is POST.
 switch ($method) {
     case "login": // asdfasfd
+        assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
         assert_login();
         toURL('/');
         break;
     case "apply":
-        assert_hcaptcha();
+        assert_method();    // Check whether REQUEST METHOD is POST.
+        // assert_hcaptcha();
         assert_password();
-        store_account();
+        send_email($_POST['email']);
+        // store_account();
         break;
     case "info":
+        assert_method();    // Check whether REQUEST METHOD is POST.
         store_basic_info();
         break;
+    case "verify":
+        verify_email();     // Check whether the email verification link is correct.
+        break;
     default:
-        error("Error: method");
+        alert("Error: method");
         break;
 }
 
