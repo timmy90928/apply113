@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>設定密碼</title>
-    <link rel="stylesheet" href="../include/common_style.css">
+    <link rel="stylesheet" href="/include/common_style.css">
     </script>
 </head>
 <?php include '../app/views/header.php'?>
@@ -13,7 +13,7 @@
     <div class="container">
         <h1>設定密碼</h2>
         <div class="notice">
-            ※ 輸入身分證與密碼。
+            ※ 此頁面需有Email的連結令牌, 提交後會根據令牌檢查身分證號碼是否正確。
         </div>
         <form action=<?php echo "/Home/verify/password?token=" . $email_token?> method="post">
             <table class="form-table">
