@@ -14,6 +14,7 @@ function alert($msg){
             window.history.back();
         };
     </script>';
+    // throw new \InvalidArgumentException("$msg");
     exit();
 }
 
@@ -30,7 +31,7 @@ function toURL($url){
  */
 function assert_method(){
     if ($_SERVER["REQUEST_METHOD"] != "POST"){
-        alert("REQUEST_METHOD必須為POST");
+        alert("請使用正當管道進行驗證: REQUEST_METHOD必須為POST");
     };
 }
 
@@ -93,57 +94,78 @@ function bcrypt($password){
     return $hashedPassword;
 }
 
+/** 
+ * Access apply113 database.
+ */
+class access_database extends Post {
+    public function __construct() { // Constructor.
+        parent::__construct();      // Call the constructor of the parent class Post.
+    } 
 
-function store_account(){
-    $model = new Post();
-    $data = [
-        "username"	    => 'user1',
-        "Permissions"	=> 'user',
-        "password"	    => bcrypt($_POST['password']),
-        "name"	        => $_POST['name'],
-        "ID_number"	    => $_POST['id_number'],
-        "email"	        => $_POST['email'],
-        "status"	    => '報名中',
-    ];
+    /** Check the format of the ID number and return whether it exists. */
+    protected function check_idNumber($idNumber){
+        $isValidFormat = $this->checkTWIDFormat($idNumber);
+        $exists = $this->checkIfExists('ID_number', $idNumber);
+        if ($isValidFormat == false) { alert('請檢查身分證格式'); }
+        return $exists;
+    }
 
-    // Check.
-    $isValidFormat = $model->checkTWIDFormat($data['ID_number']);
-    $exists = $model->checkIfExists('ID_number', $data['ID_number']);
-    if ($isValidFormat == false) { alert('請檢查身分證格式'); }
-    if ($exists) { alert('請檢查是否有重複申請'); }
+    public function store_account(){
+        $data = [
+            "Permissions"	=> 'user',
+            "name"	        => $_POST['name'],
+            "ID_number"	    => $_POST['id_number'],
+            "email"	        => $_POST['email'],
+            "status"	    => '報名中',
+        ];
+        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        if ($exists) { alert('請檢查是否有重複申請'); }
 
-    // Store.
-    $YN = $model->save($data);
-    return $YN;
-}
-function store_basic_info(){
-    $model = new Post();
-    $data = [
-        "name"	        => $_POST['name'],
-        "gender"	    => $_POST['gender'],
-        "address"	    => $_POST['address'],
-        "phone_number"	=> $_POST['phone'],
-        "origin_school"	=> $_POST['school'],
-        "subject"	    => $_POST['department'],
-    ];
+        return $this->save($data); // Store.
+    }
 
-    // Store.
-    $YN = $model->save($data);
-    return $YN;
+    /** Change password from database. */
+    public function store_password(){
+        $data = [
+            "ID_number"	    => $_POST['id_number'],
+            "password"	    => bcrypt($_POST['password']),
+        ];
+        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
+        return $this->updateFieldsByIdNumber($data['ID_number'], $data);
+    }
+
+    public function store_basic_info(){
+        $data = [
+            "name"	        => $_POST['name'],
+            "gender"	    => $_POST['gender'],
+            "address"	    => $_POST['address'],
+            "phone_number"	=> $_POST['phone'],
+            "origin_school"	=> $_POST['school'],
+            "subject"	    => $_POST['department'],
+        ];
+    
+        // Store.
+        $YN = $this->save($data);
+        return $YN;
+    }
+
+    /** Get record of designated ID number. */
+    public function get_record_from_idNumber($idNumber){
+        $exists = $this->checkIfExists('ID_number', $idNumber);
+        if (! $exists){ alert("該身分證尚未申請帳號"); }
+        return $this->where('ID_number', $idNumber)->first();
+    }
 }
 
 /**
  * Check ID number and password.
  */
-function assert_login(){
-    $model = new Post();
-    $idNumber = $_POST['USER'];
-    $exists = $model->checkIfExists('ID_number', $idNumber);
-    if (! $exists){ alert("該身分證尚未申請帳號"); }
-    $record = $model->where('ID_number', $idNumber)->first();
+function assert_login($db){
+    $record = $db->get_record_from_idNumber($_POST['USER']);
     $hashedPassword = $record['password'];
-    // if (password_verify($_POST['PSWD'], $hashedPassword)){error("密碼錯誤");}
-    if ($_POST['PSWD'] != $hashedPassword){alert("密碼錯誤");}
+    if (! password_verify($_POST['PSWD'], $hashedPassword)){alert("密碼錯誤");}
+    // if ($_POST['PSWD'] != $hashedPassword){alert("密碼錯誤");}
 }
 
 /**
@@ -191,7 +213,7 @@ function verify_email($email_token, $idNumber){
     list($email_hash, $expire) = explode(':', base64_decode($email_token,true));
 
     if ($email_hash != $_hash){ alert("請檢查身分證號碼"); }
-    if (time() > $expire){ alert("此驗證連結，已於 ".date('Y-m-d H:i:s', $expire)." 失效!"); }
+    // if (time() > $expire){ alert("此驗證連結，已於 ".date('Y-m-d H:i:s', $expire)." 失效!"); }
 }
 
 /** Convert between URL-safe and Base64. */
@@ -215,25 +237,26 @@ class SaveURL{
     }
 }
 // main
+$db = new access_database();
 switch ($method) {
     case "login": // asdfasfd
         assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
-        assert_login();
+        assert_login($db);
         toURL('/');
         break;
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        // assert_hcaptcha();
+        assert_hcaptcha();
         send_email($_POST['email'], $_POST['id_number']);
         // store_account();
         break;
     case "info":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        store_basic_info();
+        // store_basic_info();
         break;
     case "verify":
-        if (! isset($_GET["token"])) {alert("網址格式錯誤");}
+        if (! isset($_GET["token"])) {alert("請使用正當管道進行驗證: 網址格式錯誤");}
         $uriSafeToken = (new SaveURL($_GET["token"]))->encode();
         toURL("/Home/password/".$uriSafeToken);
         break;
@@ -241,7 +264,13 @@ switch ($method) {
         assert_method();    // Check whether REQUEST METHOD is POST.
         $base64Token = (new SaveURL($_GET["token"]))->decode();
         verify_email($base64Token, $_POST['id_number']);     // Check whether the email verification link is correct.
-        echo($_POST['id_number']."已成功設定密碼。");
+        if ($db->store_password()){ echo($_POST['id_number']."已成功設定密碼。"); }
+        break;
+    case "forget_password":
+        if (! isset($_GET["USER"])) {alert("網址格式錯誤");}
+        $user = htmlspecialchars($_GET['USER']);
+        $record = $db->get_record_from_idNumber($user);
+        send_email($record['email'], $user);
         break;
     default:
         alert("Error: method");

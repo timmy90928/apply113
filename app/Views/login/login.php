@@ -8,32 +8,16 @@
 
 <link rel="stylesheet" href="../include/common_style.css">
 <script language='javascript'>
-    function FormLoad()
-    {
-            document.form1.USER.focus();	
+    function FormLoad(){
+        document.form1.USER.focus();	
     }		
     function ToApplyAccount() {
         window.location.href = '/Home/apply_account';
     }
-   function check(formObj) {
-   //檢查欄位是否填寫
-   	if(formObj.USER.value=='' || formObj.PSWD.value==''){
-   		alert('請輸入身分證和密碼！');
-   		return false;
-   	}
-    window.open("/", "_parent");
-   }
-   String.prototype.hashCode = function() {
-    var hash = 0, i, chr;
-    if (this.length === 0) return hash;
-    for (i = 0; i < this.length; i++) {
-        chr   = this.charCodeAt(i);
-        hash  = ((hash << 5) - hash) + chr;
-        hash |= 0; // Convert to 32bit integer
+    function ToForgetPassword() {
+        var userValue = document.getElementById('USER').value;
+        window.location.href = '/Home/verify/forget_password?USER=' + encodeURIComponent(userValue);
     }
-    return hash;
-    };
-    console.log("assdsddsadasdasdsadsad".hashCode())
 </script>
 
 <?php include '../app/views/header.php' ?>
@@ -41,7 +25,7 @@
     <div class="container">
         <h1>登入系統</h1>
         <div class="notice">
-            ※請輸入身分證與密碼，若尚未申請帳號，請在右下角點選申請帳號。
+            ※若忘記或欲修改密碼，請輸入身分證號碼後，並點選忘記密碼。若尚未申請帳號，請在右下角點選申請帳號。
         </div>
 
         <form action="/Home/verify/login" method="post">
@@ -61,7 +45,7 @@
                 <input type="hidden" name="g-captcha-response" id="g-captcha-response">
                 <input type='submit' value='登入'>
                 <input type='reset'  value='重設'>
-                <input type='button' name='forget_password' value='忘記密碼' onClick='ToApplyAccount()'>
+                <input type='button' name='forget_password' value='忘記密碼/更改密碼' onClick='ToForgetPassword()'>
                 <input type='button' name='apply' value='申請帳號' onClick='ToApplyAccount()'>
             </div>
         </form>
