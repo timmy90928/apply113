@@ -29,6 +29,7 @@
             } else {
                 echo "<tr><td colspan='3'>尚未填寫任何志願</td></tr>";
             }
+            echo '<tr><td colspan="3"><button onclick="window.location.href=\'/home/sign_up_system_mainpage\'">返回報名系統</button></td></tr>';
             ?>
         </table>
     </div>

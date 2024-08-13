@@ -52,9 +52,9 @@ $ID_number = 'Q123456789';
 
             var wishlistStatusElement = document.getElementById('wishlist-status');
             if (isWishlistFilled) {
-                wishlistStatusElement.innerHTML = '您已填寫志願學校。';
+                wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="/home/wishlist">點擊此處查看</a>。';
             } else {
-                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/wishlist.php">點擊此處填寫</a>。';
+                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/sign_up_school">點擊此處填寫</a>。';
             }
         }
     </script>
