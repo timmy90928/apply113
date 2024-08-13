@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>報名系統</h1>
-        <form action="/home/sign_up_system_mainpage" method="POST" enctype="multipart/form-data">
+        <form action="/home/wishlist" method="POST">
             <div class="form-group">
                 <label for="school">欲報名之學校：</label>
                 <select id="school" name="school" required>
@@ -50,27 +50,31 @@
             <button type="button" id="add_wishlist">新增志願</button>
             <div id="wishlist_container">
             </div>
+            <input type="hidden" id="wishlist_data" name="wishlist_data">
             <button type="submit">提交報名</button>
         </form>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var wishlistCount = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    var wishlistCount = 0;
 
-            document.getElementById('add_wishlist').addEventListener('click', function() {
-                wishlistCount++;
+    document.getElementById('add_wishlist').addEventListener('click', function() {
+        wishlistCount++;
 
-                var school = document.getElementById('school').options[document.getElementById('school').selectedIndex].text;
-                var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
-                var wishlistItem = document.createElement('div');
-                wishlistItem.classList.add('wishlist-item');
-                wishlistItem.innerHTML = '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
-                                        '<span class="school">' + school + '</span>' +
-                                        '<span class="department">' + department + '</span>';
-                document.getElementById('wishlist_container').appendChild(wishlistItem);
-            });
-        });
-    </script>
+        var school = document.getElementById('school').options[document.getElementById('school').selectedIndex].text;
+        var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
+        var wishlistItem = document.createElement('div');
+        wishlistItem.classList.add('wishlist-item');
+        wishlistItem.innerHTML = '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
+                                '<span class="school">' + school + '</span>' +
+                                '<span class="department">' + department + '</span>';
+        document.getElementById('wishlist_container').appendChild(wishlistItem);
+        var currentData = document.getElementById('wishlist_data').value;
+        var newData = wishlistCount + ',' + school + ',' + department;
+        document.getElementById('wishlist_data').value = currentData ? currentData + ';' + newData : newData;
+    });
+});
+</script>
 </body>
 </html>

@@ -14,22 +14,22 @@
                 <th>志願序</th>
                 <th>學校</th>
                 <th>科系</th>
-                <th>填寫時間</th>
             </tr>
-            <?php if (!empty($wishlist)): ?>
-                <?php foreach ($wishlist as $index => $item): ?>
-                    <tr>
-                        <td><?= $index + 1 ?></td>
-                        <td><?= $item['school'] ?></td>
-                        <td><?= $item['department'] ?></td>
-                        <td><?= $item['created_at'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="4">尚未填寫任何志願</td>
-                </tr>
-            <?php endif; ?>
+            <?php
+            if (!empty($_POST['wishlist_data'])) {
+                $wishlistItems = explode(';', $_POST['wishlist_data']);
+                foreach ($wishlistItems as $item) {
+                    list($order, $school, $department) = explode(',', $item);
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($order) . "</td>";
+                    echo "<td>" . htmlspecialchars($school) . "</td>";
+                    echo "<td>" . htmlspecialchars($department) . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>尚未填寫任何志願</td></tr>";
+            }
+            ?>
         </table>
     </div>
 </body>

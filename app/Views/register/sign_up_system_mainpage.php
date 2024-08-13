@@ -29,7 +29,7 @@ $ID_number = 'Q123456789';
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var isBasicInfoFilled = "<?php echo $model->isNameEmptyForIdNumber($ID_number);?>"; // 依資料庫做判定，目前先用false為例
+            var isBasicInfoFilled = "<?php echo $model->isNameEmptyForIdNumber($ID_number);?>";
 
             var registrationProgressElement = document.getElementById('registration-progress');
             if (isBasicInfoFilled) {
@@ -48,13 +48,13 @@ $ID_number = 'Q123456789';
         });
 
         function checkWishlistStatus() {
-            var isWishlistFilled = false; // 依資料庫做判定，目前先用false為例
+            var isWishlistFilled = false;
 
             var wishlistStatusElement = document.getElementById('wishlist-status');
             if (isWishlistFilled) {
                 wishlistStatusElement.innerHTML = '您已填寫志願學校。';
             } else {
-                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/sign_up_school">點擊此處填寫</a>。';
+                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/wishlist.php">點擊此處填寫</a>。';
             }
         }
     </script>
