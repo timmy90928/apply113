@@ -56,11 +56,11 @@
 
 
 <?php
-if(!empty($posts)){
-    echo '<h1> Username </h1>';
-    foreach($posts as $posts_item){
-        echo '
-            <a href="/home/show/'.$posts_item['ID'].'">'.$posts_item['username'].'</a><br>';
-    }
-}
+// if(!empty($posts)){
+//     echo '<h1> Username </h1>';
+//     foreach($posts as $posts_item){
+//         echo '
+//             <a href="/home/show/'.$posts_item['ID'].'">'.$posts_item['username'].'</a><br>';
+//     }
+// }
 ?>
