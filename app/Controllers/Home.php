@@ -108,4 +108,10 @@ class Home extends BaseController
         return view('login/password',$data);
     }
     
+
+    public function wishlist(): string
+    {
+        return view('register/wishlist');
+    }
+
 }

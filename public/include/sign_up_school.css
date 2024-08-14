@@ -19,7 +19,6 @@ h1 {
     color: #333;
 }
 
-
 form {
     width: 100%;
 }
@@ -45,7 +44,6 @@ select, input[type="file"] {
     box-sizing: border-box;
 }
 
-
 .wishlist-item {
     display: flex;
     align-items: center;
@@ -66,7 +64,6 @@ select, input[type="file"] {
     padding: 0 10px;
 }
 
-
 button {
     display: inline-block;
     padding: 10px 15px;
@@ -77,10 +74,15 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+#wishlist_container {
+    margin-top: 20px;
 }
 
 .wishlist-item:last-child {
