@@ -33,14 +33,6 @@
                     <td class='form-label' for='email'>電子信箱：</td>
                     <td><input name='email' type='email' id='email' size='40' maxlength='50' required></td>
                 </tr>
-                <tr>
-                    <td class='form-label' for='password'>密碼：</td>
-                    <td><input name='password' type='password' id='password' size='40' maxlength='20' required></td>
-                </tr>
-                <tr>
-                    <td class='form-label' for='password'>再次輸入密碼：</td>
-                    <td><input name='password_again' type='password' id='password_again' size='40' maxlength='20' required></td>
-                </tr>
             </table>
             
             <div class='center'>

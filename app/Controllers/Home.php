@@ -100,8 +100,18 @@ class Home extends BaseController
         return view('login/verify',$data);
 
     }
+    public function password($email_token): string
+    {
+        $data = [
+            'email_token' => $email_token
+        ];
+        return view('login/password',$data);
+    }
+    
+
     public function wishlist(): string
     {
         return view('register/wishlist');
     }
+
 }
