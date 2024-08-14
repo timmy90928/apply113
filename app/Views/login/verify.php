@@ -128,12 +128,20 @@ class access_database extends Post {
     /** Change password from database. */
     public function store_password(){
         $data = [
-            "ID_number"	    => $_POST['id_number'],
             "password"	    => bcrypt($_POST['password']),
         ];
-        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
-        return $this->updateFieldsByIdNumber($data['ID_number'], $data);
+        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
+    }
+
+    public function store_choices(){
+        $data = [
+            "choices"	    => $_POST['password'],
+        ];
+        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
+        if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
+        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
     }
 
     public function store_basic_info(){
@@ -273,6 +281,10 @@ switch ($method) {
         $user = htmlspecialchars($_GET['USER']);
         $record = $db->get_record_from_idNumber($user);
         send_email($record['email'], $user);
+        break;
+    case "choices":
+        assert_method();    // Check whether REQUEST METHOD is POST.
+        $db->store_choices();
         break;
     default:
         alert("Error: method");
