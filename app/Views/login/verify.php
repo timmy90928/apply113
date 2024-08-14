@@ -6,7 +6,7 @@ use App\Models\Post;
  * 
  * @param string $msg Error message.
  */
-function alert($msg){
+function alert(string $msg){
     echo '
     <script>
         alert("' . htmlspecialchars($msg, ENT_QUOTES, 'UTF-8') . '");
@@ -21,7 +21,7 @@ function alert($msg){
 /**
  * The web page is moved to the specified URL.
  */
-function toURL($url){
+function toURL(string $url){
     header("Location: $url");
     exit();
 }
@@ -88,7 +88,7 @@ function assert_password(){
  * if (!password_verify($password, $hashedPassword)){error($msg);}
  * ```
  */
-function bcrypt($password){
+function bcrypt(string $password){
     // verify password: if (password_verify($password, $hashedPassword))
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     return $hashedPassword;
@@ -103,13 +103,14 @@ class access_database extends Post {
     } 
 
     /** Check the format of the ID number and return whether it exists. */
-    protected function check_idNumber($idNumber){
+    protected function check_idNumber(string $idNumber){
         $isValidFormat = $this->checkTWIDFormat($idNumber);
         $exists = $this->checkIfExists('ID_number', $idNumber);
         if ($isValidFormat == false) { alert('請檢查身分證格式'); }
         return $exists;
     }
 
+    /** Store account information, including ID number, name and email address. */
     public function store_account(){
         $data = [
             "Permissions"	=> 'user',
@@ -144,14 +145,13 @@ class access_database extends Post {
             "origin_school"	=> $_POST['school'],
             "subject"	    => $_POST['department'],
         ];
-    
-        // Store.
-        $YN = $this->save($data);
-        return $YN;
+        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
+        return $this->updateFieldsByIdNumber($data['ID_number'], $data);
     }
 
     /** Get record of designated ID number. */
-    public function get_record_from_idNumber($idNumber){
+    public function get_record_from_idNumber(string $idNumber){
         $exists = $this->checkIfExists('ID_number', $idNumber);
         if (! $exists){ alert("該身分證尚未申請帳號"); }
         return $this->where('ID_number', $idNumber)->first();
@@ -160,8 +160,10 @@ class access_database extends Post {
 
 /**
  * Check ID number and password.
+ * 
+ * @param access_database $db An instance of the access_database class.
  */
-function assert_login($db){
+function assert_login(access_database $db){
     $record = $db->get_record_from_idNumber($_POST['USER']);
     $hashedPassword = $record['password'];
     if (! password_verify($_POST['PSWD'], $hashedPassword)){alert("密碼錯誤");}
@@ -176,7 +178,7 @@ function assert_login($db){
  * @param string $to Email address to be sent to.
  * @param string $idNumber ID number.
  */
-function send_email($to, $idNumber){
+function send_email(string $to, string $idNumber){
     // Token.
     $expire = time() + 600; // Expires in 10 minutes.
     $_hash =  hash('sha512', 'apply113' . $idNumber);
@@ -208,19 +210,19 @@ function send_email($to, $idNumber){
  * @param string $email_token Token from email.
  * @param string $idNumber ID number.
  */
-function verify_email($email_token, $idNumber){
+function verify_email(string $email_token, string $idNumber){
     $_hash =  hash('sha512', 'apply113' . $idNumber);
     list($email_hash, $expire) = explode(':', base64_decode($email_token,true));
 
     if ($email_hash != $_hash){ alert("請檢查身分證號碼"); }
-    // if (time() > $expire){ alert("此驗證連結，已於 ".date('Y-m-d H:i:s', $expire)." 失效!"); }
+    if (time() > $expire){ alert("此驗證連結，已於 ".date('Y-m-d H:i:s', $expire)." 失效!"); }
 }
 
 /** Convert between URL-safe and Base64. */
 class SaveURL{
     public $data;
 
-    public function __construct($data) {
+    public function __construct(string $data) {
         $this->data = $data;
     }
 
@@ -248,8 +250,8 @@ switch ($method) {
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
+        $db->store_account();
         send_email($_POST['email'], $_POST['id_number']);
-        // store_account();
         break;
     case "info":
         assert_method();    // Check whether REQUEST METHOD is POST.
