@@ -16,7 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
+    
+    - name: Set up PHP with Xdebug
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: xdebug
+          ini-values: |
+            xdebug.mode=coverage
+            xdebug.start_with_request=yes
+          
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
