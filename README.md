@@ -24,4 +24,4 @@ Run `server run.bat`
 
 [PHP]: https://www.php.net/downloads.php "Download PHP ZIP"
 [Composer]: https://getcomposer.org/download/ "Download Composer-Setup.exe"
-[php.ini]: ./docs/php.ini, "PHP configuration file"
+[php.ini]: ./docs/php.ini "PHP configuration file"
