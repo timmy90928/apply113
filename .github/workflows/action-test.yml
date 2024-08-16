@@ -2,9 +2,9 @@ name: PHP Composer Test
 
 on:
   push:
-    branches: [ "action-test" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "action-test" ]
+    branches: [ "*" ]
 
 jobs:
   build:
