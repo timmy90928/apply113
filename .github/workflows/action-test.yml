@@ -1,22 +1,20 @@
-name: PHP Composer
+name: PHP Composer Test
 
 on:
   push:
-    branches: [ "action-test" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "action-test" ]
-
-permissions:
-  contents: read
+    branches: [ "*" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-          
+      with:
+        fetch-depth: 0
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
@@ -29,11 +27,19 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3.9' 
+        extensions: mbstring, xdebug
+
+    - name: Configure Xdebug
+      run: |
+        echo "xdebug.mode=coverage" | sudo tee -a /etc/php/8.3/cli/conf.d/20-xdebug.ini
+        echo "xdebug.start_with_request=yes" | sudo tee -a /etc/php/8.3/cli/conf.d/20-xdebug.ini
+
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-          
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run tests
       run: vendor/bin/phpunit --coverage-text
