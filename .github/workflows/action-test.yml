@@ -28,6 +28,18 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+          
+     - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3.9'  # 指定 PHP 版本，可以根据需求?整
+        extensions: mbstring, xdebug
+
+    - name: Configure Xdebug
+      run: |
+        echo "xdebug.mode=coverage" >> /etc/php/8.3.9/cli/conf.d/20-xdebug.ini
+        echo "xdebug.start_with_request=yes" >> /etc/php/8.3.9/cli/conf.d/20-xdebug.ini
+
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
