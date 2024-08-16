@@ -6,7 +6,7 @@ Run `server run.bat`
 ## Install
 1. Download [PHP], unzip it and put it into the C drive, finally add environment variables.
 1. Download and run  `Composer-Setup.exe` of [Composer].
-1. Replace [php.ini] with C:\php-*\php.ini
+1. Replace [php.ini] with `C:\php-*\php.ini`.
 1. Create CI4 project.
     ```bash
     composer create-project codeigniter4/appstarter apply113
