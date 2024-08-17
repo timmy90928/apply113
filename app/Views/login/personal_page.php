@@ -9,12 +9,13 @@
 <body>
     <div class="container">
         <div class="block name">
-            <p>登入者姓名</p>
+            <p><?php echo $name.'('.$id.')'?></p>
         </div>
         <div class="block menu">
             <a href="#">修改密碼</a><br>
             <a href="#">修改個人資料</a><br>
-            <a href="#">登出</a>
+            <a href=<?php echo '/Home/verify/forget_password?USER='.$id ?>>修改密碼</a><br>
+            <a href="/">登出</a>
         </div>
         <div class="block main-options">
             <a href="/home/sign_up_system_mainpage">報名系統</a><br>

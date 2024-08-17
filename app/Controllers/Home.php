@@ -114,8 +114,14 @@ class Home extends BaseController
         return view('register/wishlist');
     }
 
-    public function personal_page(): string
+    public function personal_page(string $id): string
     {
-        return view('login/personal_page');
+        $model = new Post();
+        $record = $model->get_record_from_idNumber(base64_decode($id));
+        $data = [
+            'id' => $record['ID_number'],
+            'name' => $record['name'],
+        ];
+        return view('login/personal_page',$data);
     }
 }

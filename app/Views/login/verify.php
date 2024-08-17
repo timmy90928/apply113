@@ -255,7 +255,7 @@ switch ($method) {
         assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
         assert_login($db);
-        toURL('/');
+        toURL("/Home/personal_page/".str_replace('=', '', base64_encode($_POST['USER'])));
         break;
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.

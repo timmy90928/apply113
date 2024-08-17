@@ -72,6 +72,13 @@ class Post extends Model
         }
     }
 
+    /** Get record of designated ID number. */
+    public function get_record_from_idNumber(string $idNumber){
+        $exists = $this->checkIfExists('ID_number', $idNumber);
+        if (! $exists){ alert("該身分證尚未申請帳號"); }
+        return $this->where('ID_number', $idNumber)->first();
+    }
+
     /** Check if the record with the given ID number exists. */
     public function checkIfExists(string $fieldName, string $value)
     {
