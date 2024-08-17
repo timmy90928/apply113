@@ -35,7 +35,7 @@
                     <td class='form-label' for='email'>電子信箱：</td>
                     <td><input name='email' type='email' id='email' size='40' maxlength='50' required></td>
                 </tr>
-
+              
             </table>
             
             <div class='center'>
