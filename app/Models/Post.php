@@ -46,15 +46,43 @@ class Post extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function checkIfExists($fieldName, $value)
+    /** Check if the field exists. */
+    protected function isFieldAllowed(array $datas)
+    {
+        foreach ($datas as $field => $value) {
+            if (!in_array($field, $this->allowedFields)) {
+                throw new \InvalidArgumentException("Invalid field name: $field");
+            }
+        }
+    }
+
+    /** Update multiple fields by ID number. */
+    public function updateFieldsByIdNumber(string $idNumber, array $data)
+    {
+        $this->isFieldAllowed($data); // Validate the data array.
+
+        if ($this->checkIfExists('ID_number', $idNumber)) {
+            // Update the fields.
+            return $this->update(                               
+                $this->where('ID_number', $idNumber)->get()->getRow()->ID,
+                $data
+            ); 
+        } else {
+            return false; // Return false if no record was found with the given ID number.
+        }
+    }
+
+    /** Check if the record with the given ID number exists. */
+    public function checkIfExists(string $fieldName, string $value)
     {
         $query = $this->where($fieldName, $value)->get();
         return ($query->getRow()) ? true : false;
     }
-    
-    public function checkTWIDFormat($idNumber)      // Check Taiwan ID card number format.
+
+    /** Check Taiwan ID card number format. */
+    public function checkTWIDFormat(string $idNumber)
     {
-        $pattern = '/^[A-Z]{1}[1-2]{1}[0-9]{8}$/';  // Taiwan ID card number regular expression
+        $pattern = '/^[A-Z]{1}[1-2]{1}[0-9]{8}$/';  // Taiwan ID card number regular expression.
 
         if (preg_match($pattern, $idNumber)) {
             return true;
@@ -63,7 +91,9 @@ class Post extends Model
         }
     }
 
-    public function isValidTWMobileNumber($phoneNumber) {
+    /** Validate if a given phone number is a valid Taiwanese mobile number. */
+    public function isValidTWMobileNumber($phoneNumber) 
+    {
         $pattern = '/^09\d{8}$/';
     
         if (preg_match($pattern, $phoneNumber)) {
@@ -73,7 +103,8 @@ class Post extends Model
         }
     }
 
-    public function isValidURL($url) {
+    public function isValidURL($url) 
+    {
         if (filter_var($url, FILTER_VALIDATE_URL)) {
             return true;
         } else {
@@ -81,6 +112,7 @@ class Post extends Model
         }
     }
 
+    /** Check if the `name` field is empty for a given ID number. */
     public function isNameEmptyForIdNumber($idNumber)
     {
         $query = $this->where('ID_number', $idNumber)->first(); // Assuming there is only one record for this ID_number

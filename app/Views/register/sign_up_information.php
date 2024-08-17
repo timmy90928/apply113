@@ -24,15 +24,34 @@
         }
     </style>
 </head>
-<?php include '../app/views/header.php'?>
+
+<?php
+include '../app/views/header.php'; // Load header.php
+$idNumber = "Q123456789";
+use App\Models\Post;
+$model = new Post();
+$record = $model->where('ID_number', $idNumber)->first();
+?>
+
 <body>
     <div class="container">
         <h1>個人資料填寫</h1>
+        <div class="notice">
+            ※ 身分證與姓名已不可修改，如需修改，請重新申請帳號。
+        </div>
         <form action="/home/sign_up_school" method="POST">
             <table class="form-table">
                 <tr>
+                    <td class="form-label">身份證字號：</td>
+                    <td><input type="text" id="id_number" name="id_number" value="<?php echo $idNumber; ?>" readonly></td>
+                </tr>
+                <tr>
                     <td class="form-label">姓名：</td>
-                    <td><input type="text" id="name" name="name" required></td>
+                    <td><input type="text" id="name" name="name" value="<?php echo $record['username']; ?>" readonly></td>
+                </tr>
+                <tr>
+                    <td class="form-label">電子信箱：</td>
+                    <td><input type="email" id="email" name="email" value="<?php echo $record['email']; ?>" required></td>
                 </tr>
                 <tr>
                     <td class="form-label">性別：</td>
@@ -41,10 +60,7 @@
                         <label><input type="radio" id="gender_female" name="gender" value="female" required> 女</label>
                     </td>
                 </tr>
-                <tr>
-                    <td class="form-label">身份證字號：</td>
-                    <td><input type="text" id="id_number" name="id_number" required></td>
-                </tr>
+                
                 <tr>
                     <td class="form-label">地址：</td>
                     <td><input type="text" id="address" name="address" required></td>
@@ -53,10 +69,7 @@
                     <td class="form-label">電話：</td>
                     <td><input type="tel" id="phone" name="phone" required></td>
                 </tr>
-                <tr>
-                    <td class="form-label">電子信箱：</td>
-                    <td><input type="email" id="email" name="email" required></td>
-                </tr>
+                
                 <tr>
                     <td class="form-label">現在就讀學校：</td>
                     <td>
