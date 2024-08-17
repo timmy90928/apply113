@@ -1,38 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a, .nav-right a');
-    const homeLink = document.querySelector('.home-link');
+document.addEventListener("DOMContentLoaded", function() {
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector(".nav-links");
+    const nav = document.querySelector("nav");
 
-    // 獲取當前頁面的名稱
-    const currentPage = window.location.pathname.split("/").pop();
+    menuButton.addEventListener("click", function() {
+        navLinks.classList.toggle("active");
+        nav.classList.toggle("active");
+    });
 
-    // 檢查是否有儲存的鏈接
-    let activeLink = localStorage.getItem('activeLink');
+    // 點擊選單按鈕後關閉菜單
+    navLinks.addEventListener("click", function(e) {
+        if (e.target.tagName === 'A') {
+            navLinks.classList.remove("active");
+            nav.classList.remove("active");
+        }
+    });
 
-    function setActiveLink(link) {
-        navLinks.forEach(navLink => navLink.classList.remove('active'));
-        link.classList.add('active');
-        localStorage.setItem('activeLink', link.getAttribute('href'));
-    }
-
-    // 如果沒有儲存的鏈接，或者當前頁面是首頁，則設置「訊息公告」為活動狀態
-    if (!activeLink || currentPage === '' || currentPage === 'index.html' || currentPage === 'announcement.html') {
-        setActiveLink(homeLink);
-    } else {
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === activeLink) {
-                setActiveLink(link);
-            }
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this !== homeLink) {
-                setActiveLink(this);
-            } else {
-                navLinks.forEach(navLink => navLink.classList.remove('active'));
-                localStorage.removeItem('activeLink');
-            }
-        });
+    // 處理窗口大小變化
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove("active");
+            nav.classList.remove("active"); // 窗口大小變化時移除 nav 的 active 類別
+        }
     });
 });

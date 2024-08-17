@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Post;
 
 /**
@@ -238,6 +239,7 @@ class SaveURL{
         return str_replace(['-', '_'], ['+', '/'], $this->data);
     }
 }
+
 // main
 $db = new access_database();
 switch ($method) {
