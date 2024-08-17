@@ -1,3 +1,4 @@
+/* 全局樣式 */
 html, body {
     height: 100%;
     margin: 0;
@@ -12,47 +13,35 @@ body {
     box-sizing: border-box;
 }
 
+/* 導覽列樣式 */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1000;
+    transition: background-color 0.8s ease; /* 添加過渡效果 */
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
     padding: 10px 20px;
-    position: relative;
     height: 30px;
 }
 
 .nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    width: 100%;
-}
-
-.nav-links-inner {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    flex-grow: 1;
 }
 
 .nav-links a {
     color: white;
-    text-align: center;
-    padding: 14px 10px;
     text-decoration: none;
+    padding: 10px;
     margin: 0 50px;
-    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -60,20 +49,9 @@ nav {
     background-color: transparent;
 }
 
-.nav-right {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .nav-right a {
     color: white;
-    text-align: center;
-    padding: 18px 10px 14px 10px;
     text-decoration: none;
-    margin: 0 25px;
-    white-space: nowrap;
 }
 
 .nav-right a:hover {
@@ -81,63 +59,70 @@ nav {
     background-color: transparent;
 }
 
-/* .active {
-    background-color: #6f93fe;
-} */
+/* 菜單按鈕樣式 */
+.menu-button {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
 
+/* 響應式樣式 */
+@media (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    /* 當選單打開時變更nav的背景顏色 */
+    nav.active {
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(128, 128, 128, 1);
+        transition: opacity 0.8s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* 頁面標頭樣式 */
 header {
-    background-color: #f2f2f2;
-    padding: 80px 0;
+    background-color: #ffffff;
+    padding: 40px 0 0px 0;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    height: 90px;
 }
 
 header h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-header h1 span {
-    display: block;
     font-size: 40px;
     font-weight: bold;
     color: #6f93fe;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.article-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-article {
-    margin-bottom: 40px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-h2 {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-    color: #333;
-}
-
-.date {
-    display: block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-p {
-    line-height: 1.6;
-    color: #444;
-    margin-top: 15px;
-}
-
+/* 頁尾樣式 */
 footer {
     background-color: rgba(0, 0, 0, 0.6);
     text-align: center;

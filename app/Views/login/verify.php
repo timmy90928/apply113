@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Post;
 
 /**
@@ -144,6 +145,7 @@ class access_database extends Post {
         return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
     }
 
+
     public function store_basic_info(){
         $data = [
             "name"	        => $_POST['name'],
@@ -285,6 +287,7 @@ switch ($method) {
     case "choices":
         assert_method();    // Check whether REQUEST METHOD is POST.
         $db->store_choices();
+
         break;
     default:
         alert("Error: method");

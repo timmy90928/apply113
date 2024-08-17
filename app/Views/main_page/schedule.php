@@ -3,19 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>申請入學-大學甄選入學委員會</title>
+        <title>重要時程-申請入學</title>
         <link rel="stylesheet" href="../main/main.css">
+        <link rel="stylesheet" href="../main/schedule.css">
     </head>
     <body>
         <nav>
             <div class="nav-container">
+                <div class="menu-button">
+                    <span>&#9776;</span><!-- 這是選單圖示 -->
+                </div>
                 <div class="nav-links">
-                    <div class="nav-links-inner">
-                        <a href="/Home" class="home-link">訊息公告</a>
-                        <a href="/Home/schedule">重要時程</a>
-                        <a href="/Home/statistics">統計資料</a>
-                        <a href="/Home/reference">相關網站</a>
-                    </div>
+                    <a href="/Home" class="home-link">訊息公告</a>
+                    <a href="/Home/schedule">重要時程</a>
+                    <a href="/Home/statistics">統計資料</a>
+                    <a href="/Home/reference">相關網站</a>
                 </div>
                 <div class="nav-right">
                     <a href="/Home/login" class="login-link">登入</a>
@@ -24,7 +26,7 @@
         </nav>
 
         <header>
-            <h1>大學入學甄選委員會<br><span>113申請入學</span></h1>
+            <h1>113學年度大學申請入學招生</h1>
         </header>
 
         <main>

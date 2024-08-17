@@ -114,4 +114,8 @@ class Home extends BaseController
         return view('register/wishlist');
     }
 
+    public function personal_page(): string
+    {
+        return view('login/personal_page');
+    }
 }
