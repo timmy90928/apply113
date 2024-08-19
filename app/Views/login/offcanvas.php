@@ -24,6 +24,9 @@
                         <a class="nav-link" href="/home/sign_up_system_mainpage" onclick="showContent('報名系統')">報名系統</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/home/personal_page/UTEwMzQ1Njc4OQ" onclick="showContent('回到個人主頁')">回到個人主頁</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/" onclick="showContent('登出')">登出</a>
                     </li>
                 </ul>
