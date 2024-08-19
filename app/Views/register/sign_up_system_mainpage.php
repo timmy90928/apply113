@@ -3,7 +3,7 @@ use App\Models\Post;
 $model = new Post();
 $ID_number = 'Q123456789';
 ?>
-
+<!-- 改成沒有固定帳號 -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -50,13 +50,13 @@ $ID_number = 'Q123456789';
         });
 
         function checkWishlistStatus() {
-            var isWishlistFilled = false;
+            var isWishlistFilled = true;//改連線確定是否至少填1志願
 
             var wishlistStatusElement = document.getElementById('wishlist-status');
             if (isWishlistFilled) {
-                wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="/home/wishlist">點擊此處查看</a>。 | ' + '<a href="/home/sign_up_school">修改志願學校</a>';
+                wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="<?php echo '/home/wishlist/'.$ID_number;?>">查看志願學校</a>。 | ' + '<a href="<?php echo '/home/sign_up_school/'.$ID_number;?>">修改志願學校</a>';
             } else {
-                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/sign_up_school">點擊此處填寫</a>。';
+                wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="<?php echo '/home/sign_up_school/'.$ID_number;?>">點擊此處填寫</a>。';
             }
         }
     </script>

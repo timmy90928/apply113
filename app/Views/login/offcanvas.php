@@ -15,9 +15,6 @@
                         <a class="nav-link" href="#" onclick="showContent('使用者姓名')">使用者姓名</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showContent('修改個人資料')">修改個人資料</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showContent('修改密碼')">修改密碼</a>
                     </li>
                     <li class="nav-item">
