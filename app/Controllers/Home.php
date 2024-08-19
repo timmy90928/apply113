@@ -31,11 +31,7 @@ class Home extends BaseController
     }
     public function login(): string
     {
-        $model = new Post();
-        $data = [
-            'posts' => $model->findall()
-        ];
-        return view('login/login',$data);
+        return view('login/login');
     }
     public function show($post_id){
         $model = new Post();
@@ -124,4 +120,13 @@ class Home extends BaseController
         ];
         return view('login/personal_page',$data);
     }
+    public function admin_page(): string
+    {
+        $model = new Post();
+        $data = [
+            'posts' => $model->findall()
+        ];
+        return view('login/admin_page',$data);
+    }
+    
 }

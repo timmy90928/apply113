@@ -1,6 +1,15 @@
 <?php 
-// include '../app/views/header.php'
+// $WEB_NAME = '';
+// include '../app/views/header.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="ch-TW">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars( isset($WEB_NAME) && !empty($WEB_NAME) ? $WEB_NAME : 'Undefined'); ?></title>
+</head>
 <style>
     header {
         /* <header>113學年度大學申請入學招生</header> */
