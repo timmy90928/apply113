@@ -120,7 +120,7 @@ class Post extends Model
     }
 
     /** Check if the `name` field is empty for a given ID number. */
-    public function isNameEmptyForIdNumber($idNumber)
+    public function isFieldEmptyForIdNumber(string $field,string $idNumber)
     {
         $query = $this->where('ID_number', $idNumber)->first(); // Assuming there is only one record for this ID_number
 
@@ -128,7 +128,7 @@ class Post extends Model
             return true; // Record not found
         }
 
-        $name = $query['name'];
+        $name = $query[$field];
 
         return empty($name);
     }

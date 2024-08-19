@@ -3,7 +3,7 @@ use App\Models\Post;
 $model = new Post();
 $ID_number = $record['ID_number'];
 ?>
-<!-- 改成沒有固定帳號 -->
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -33,10 +33,10 @@ $ID_number = $record['ID_number'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var isBasicInfoFilled = "<?php echo $model->isNameEmptyForIdNumber($ID_number);?>";
+            var isBasicInfoFilled = "<?php echo $model->isFieldEmptyForIdNumber('email',$ID_number);?>";
 
             var registrationProgressElement = document.getElementById('registration-progress');
-            if (isBasicInfoFilled) {
+            if (!isBasicInfoFilled) {
                 registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。<br>' +
                                                         '<a href="<?php echo '/home/show/'.$ID_number;?>">查看資料表</a> | ' +
                                                         '<a href="<?php echo '/home/sign_up_information/'.$ID_number;?>">修改資料表</a>';
@@ -50,10 +50,10 @@ $ID_number = $record['ID_number'];
         });
 
         function checkWishlistStatus() {
-            var isWishlistFilled = true;//改連線確定是否至少填1志願
+            var isWishlistFilled = "<?php echo $model->isFieldEmptyForIdNumber('choices',$ID_number);?>";
 
             var wishlistStatusElement = document.getElementById('wishlist-status');
-            if (isWishlistFilled) {
+            if (!isWishlistFilled) {
                 wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="<?php echo '/home/wishlist/'.$ID_number;?>">查看志願學校</a>。 | ' + '<a href="<?php echo '/home/sign_up_school/'.$ID_number;?>">修改志願學校</a>';
             } else {
                 wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="<?php echo '/home/sign_up_school/'.$ID_number;?>">點擊此處填寫</a>。';
@@ -62,3 +62,4 @@ $ID_number = $record['ID_number'];
     </script>
 </body>
 </html>
+

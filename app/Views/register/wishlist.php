@@ -40,7 +40,7 @@
         </tbody>
     </table>
     <div class="text-center mt-3">
-        <button class="btn btn-primary" onclick="window.location.href='/home/sign_up_system_mainpage'">返回報名系統</button>
+        <button class="btn btn-primary" onclick="window.location.href='/home/sign_up_system_mainpage/<?php echo $record['ID_number'];?>'">返回報名系統</button>
     </div>
 </div>
 
