@@ -1,4 +1,4 @@
-/* 統計資料樣式 */
+/* 桌面版設計 */
 .statistics {
     max-width: 800px;
     margin: 10px auto 30px;
@@ -8,7 +8,7 @@
 }
 
 .statistics ol {
-    padding-left: 20px;
+    padding-left: 30px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -36,4 +36,30 @@
 
 .statistics ol > li > ul > li:last-child {
     margin-bottom: 0;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    .statistics {
+        padding: 10px 15px;
+    }
+
+    .statistics ol {
+        padding-left: 25px;
+    }
+
+    .statistics li {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 12px;
+    }
 }

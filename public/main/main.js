@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 處理窗口大小變化
+    // 處理頁面大小變化
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             navLinks.classList.remove("active");
-            nav.classList.remove("active"); // 窗口大小變化時移除 nav 的 active 類別
+            nav.classList.remove("active");
         }
     });
 });
