@@ -61,7 +61,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // ID number.
             var ID_number = document.getElementById('ID_number');
-            ID_number.value = "<?php echo $record['ID_number']?>"
+            ID_number.value = "<?php echo $record['ID_number']?>";
 
             // Click.
             var wishlistCount = 0;
@@ -72,17 +72,43 @@
                 var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
                 var wishlistItem = document.createElement('div');
                 wishlistItem.classList.add('wishlist-item');
-                wishlistItem.innerHTML =    '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
-                                            '<span class="school">' + school + '</span>' +
-                                            '<span class="department">' + department + '</span>';
+                wishlistItem.innerHTML = '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
+                                        '<span class="school">' + school + '</span>' +
+                                        '<span class="department">' + department + '</span>' +
+                                        '<button type="button" class="delete-wishlist">刪除</button>';
                 document.getElementById('wishlist_container').appendChild(wishlistItem);
 
                 // wishlist_data.
-                var currentData = document.getElementById('wishlist_data').value;
-                var newData = wishlistCount + ',' + school + ',' + department;
-                document.getElementById('wishlist_data').value = currentData ? currentData + ';' + newData : newData;
+                updateWishlistData();
+
+                // Delete functionality.
+                wishlistItem.querySelector('.delete-wishlist').addEventListener('click', function() {
+                    // Remove the DOM element.
+                    wishlistItem.remove();
+
+                    // Update remaining wishlists and their data.
+                    wishlistCount--;
+                    updateWishlistData();
+                });
+            });
+
+            function updateWishlistData() {
+                var wishlistItems = document.querySelectorAll('.wishlist-item');
+                var wishlistData = [];
+                wishlistItems.forEach(function(item, index) {
+                    var wishlistLabel = item.querySelector('.wishlist-label');
+                    var school = item.querySelector('.school').textContent;
+                    var department = item.querySelector('.department').textContent;
+                    
+                    // Update the label to reflect the current position.
+                    wishlistLabel.textContent = '志願' + (index + 1);
+
+                    // Update the hidden input field.
+                    wishlistData.push((index + 1) + ',' + school + ',' + department);
+                });
+                document.getElementById('wishlist_data').value = wishlistData.join(';');
+            }
         });
-    });
     </script>
 </body>
 </html>
