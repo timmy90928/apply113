@@ -13,7 +13,7 @@ body {
 
 .container {
     width: 90%;
-    margin: 20px auto;
+    margin: 40px auto 20px auto;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
@@ -51,43 +51,6 @@ h1, h2 {
 
 form {
     width: 100%;
-}
-
-.resume-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0 15px;
-}
-
-.resume-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.resume-table .resume-label {
-    text-align: right;
-    font-weight: bold;
-    background-color: #f9f9f9;
-    width: 200px;
-}
-
-.resume-table input[type="text"],
-.resume-table input[type="tel"],
-.resume-table input[type="email"],
-.resume-table select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.resume-table input[type="radio"] {
-    margin-right: 5px;
-}
-
-.submit-row {
-    text-align: center;
 }
 
 button {

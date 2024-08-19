@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>報名系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <?= $this->include('login/offcanvas') ?>
     <link rel="stylesheet" href="/include/sign_up_school.css">
 </head>
 <body>
@@ -54,7 +56,8 @@
             <button type="submit">提交報名</button>
         </form>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     var wishlistCount = 0;
