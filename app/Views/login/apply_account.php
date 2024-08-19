@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>申請帳號</title>
-    <link rel="stylesheet" href="../include/common_style.css">
-    <script>
+<?php 
+$WEB_NAME = '申請帳號';
+include '../app/views/header.php';
+?>
+<link rel="stylesheet" href="../include/common_style.css">
+<script>
         function submitApplication() {
             alert("完成!");
         }
     </script>
-</head>
-<?php include '../app/views/header.php'?>
 <body>
     
     <div class="container">
