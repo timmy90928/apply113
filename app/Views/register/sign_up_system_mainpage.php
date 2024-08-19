@@ -37,12 +37,10 @@ $ID_number = 'Q123456789';
 
             var registrationProgressElement = document.getElementById('registration-progress');
             if (isBasicInfoFilled) {
-                registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。';
-                var dataLink = document.createElement('a');
-                dataLink.href = "<?php echo '/home/show/'.$ID_number;?>"; 
-                dataLink.textContent = '查看資料表';
-                registrationProgressElement.appendChild(document.createElement('br'));
-                registrationProgressElement.appendChild(dataLink);
+                registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。<br>' +
+                                                        '<a href="<?php echo '/home/show/'.$ID_number;?>">查看資料表</a> | ' +
+                                                        '<a href="<?php echo '/home/sign_up_information/'.$ID_number;?>">修改資料表</a>';
+                
                 checkWishlistStatus();
             } else {
                 registrationProgressElement.innerHTML = '您的報名進度：尚未填寫基本資料。請先<a href="/home/sign_up_information">填寫基本資料</a>。';
@@ -56,7 +54,7 @@ $ID_number = 'Q123456789';
 
             var wishlistStatusElement = document.getElementById('wishlist-status');
             if (isWishlistFilled) {
-                wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="/home/wishlist">點擊此處查看</a>。';
+                wishlistStatusElement.innerHTML = '您已填寫志願學校。請 <a href="/home/wishlist">點擊此處查看</a>。 | ' + '<a href="/home/sign_up_school">修改志願學校</a>';
             } else {
                 wishlistStatusElement.innerHTML = '您尚未填寫志願學校。請 <a href="/home/sign_up_school">點擊此處填寫</a>。';
             }
