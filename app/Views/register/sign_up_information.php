@@ -1,37 +1,26 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人資料填寫</title>
-    <link rel="stylesheet" href="../include/common_style.css">
-    <style>
-        .gender-options {
-            display: flex !important;
-            flex-wrap: nowrap;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .gender-options label {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-
-        .gender-options input[type="radio"] {
-            margin-right: 5px;
-        }
-    </style>
-</head>
-
-<?php
+<?php 
+$WEB_NAME = '個人資料填寫';
 include '../app/views/header.php'; // Load header.php
-$idNumber = "Q123456789";
-use App\Models\Post;
-$model = new Post();
-$record = $model->where('ID_number', $idNumber)->first();
 ?>
+<link rel="stylesheet" href="/include/common_style.css">
+<style>
+    .gender-options {
+        display: flex !important;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gender-options label {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .gender-options input[type="radio"] {
+        margin-right: 5px;
+    }
+</style>
 
 <body>
     <div class="container">
@@ -39,15 +28,15 @@ $record = $model->where('ID_number', $idNumber)->first();
         <div class="notice">
             ※ 身分證與姓名已不可修改，如需修改，請重新申請帳號。
         </div>
-        <form action="/home/sign_up_school" method="POST">
+        <form action="/Home/verify/info" method="POST">
             <table class="form-table">
                 <tr>
                     <td class="form-label">身份證字號：</td>
-                    <td><input type="text" id="id_number" name="id_number" value="<?php echo $idNumber; ?>" readonly></td>
+                    <td><input type="text" id="id_number" name="id_number" value="<?php echo $record['ID_number']; ?>" readonly></td>
                 </tr>
                 <tr>
                     <td class="form-label">姓名：</td>
-                    <td><input type="text" id="name" name="name" value="<?php echo $record['username']; ?>" readonly></td>
+                    <td><input type="text" id="name" name="name" value="<?php echo $record['name']; ?>" readonly></td>
                 </tr>
                 <tr>
                     <td class="form-label">電子信箱：</td>
@@ -63,18 +52,18 @@ $record = $model->where('ID_number', $idNumber)->first();
                 
                 <tr>
                     <td class="form-label">地址：</td>
-                    <td><input type="text" id="address" name="address" required></td>
+                    <td><input type="text" id="address" name="address"  value="<?php echo $record['address']; ?>" required></td>
                 </tr>
                 <tr>
                     <td class="form-label">電話：</td>
-                    <td><input type="tel" id="phone" name="phone" required></td>
+                    <td><input type="tel" id="phone" name="phone"  value="<?php echo $record['phone_number']; ?>" required></td>
                 </tr>
                 
                 <tr>
                     <td class="form-label">現在就讀學校：</td>
                     <td>
                         <select id="school" name="school" required>
-                            <option value="" disabled selected>請選擇學校</option>
+                            <option value="" disabled>請選擇學校</option>
                             <option value="CCU">中正大學</option>
                             <option value="NCU">中央大學</option>
                             <option value="NSYSU">中山大學</option>
@@ -95,7 +84,7 @@ $record = $model->where('ID_number', $idNumber)->first();
                     <td class="form-label">現在就讀科系：</td>
                     <td>
                         <select id="department" name="department" required>
-                            <option value="" disabled selected>請選擇科系</option>
+                            <option value="" disabled>請選擇科系</option>
                             <option value="EE">電機系</option>
                             <option value="CS">資工系</option>
                             <option value="Med">醫學系</option>
@@ -113,8 +102,35 @@ $record = $model->where('ID_number', $idNumber)->first();
                     </td>
                 </tr>
             </table>
-            <div class='center'><button type="submit">確認資料並進入下一頁</button></div>
+            <div class='center'><button type="submit">更新</button></div>
         </form>
     </div>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // School
+        var selectschool = document.getElementById('school');
+        selectschool.value = "<?php echo $record['origin_school']; ?>";
+        
+        // Department.
+        var selectdepartment = document.getElementById('department');
+        selectdepartment.value = "<?php echo $record['subject']; ?>";
+
+        // Gender.
+        var defaultGender = '<?php echo $record['gender']; ?>'; 
+        var maleRadio = document.getElementById('gender_male');
+        var femaleRadio = document.getElementById('gender_female');
+
+        if (defaultGender === 'male') {
+            if (maleRadio) {
+                maleRadio.checked = true;
+            }else if (defaultGender === 'female') {
+                if (femaleRadio) {
+                    femaleRadio.checked = true;
+                }
+            }
+        };
+    })
+        
+</script>

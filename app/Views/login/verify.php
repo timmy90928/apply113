@@ -155,9 +155,9 @@ class access_database extends Post {
             "origin_school"	=> $_POST['school'],
             "subject"	    => $_POST['department'],
         ];
-        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
-        return $this->updateFieldsByIdNumber($data['ID_number'], $data);
+        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
     }
 
     /** Get record of designated ID number. */
@@ -265,7 +265,7 @@ switch ($method) {
         break;
     case "info":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        // store_basic_info();
+        $db->store_basic_info();
         break;
     case "verify":
         if (! isset($_GET["token"])) {alert("請使用正當管道進行驗證: 網址格式錯誤");}

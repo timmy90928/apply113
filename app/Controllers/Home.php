@@ -72,12 +72,25 @@ class Home extends BaseController
         header("Location: /home/show/".$data['ID_number']);
         exit();
     }
-    public function sign_up_information(): string
+    public function sign_up_information($idNumber): string
     {
-        return view('register/sign_up_information');
+        // $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        
+        return view('register/sign_up_information',$data);
     }
     public function sign_up_school(): string
     {
+        $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
         return view('register/sign_up_school');
     }
     public function sign_up_system_mainpage(): string
