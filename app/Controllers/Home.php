@@ -83,15 +83,15 @@ class Home extends BaseController
         
         return view('register/sign_up_information',$data);
     }
-    public function sign_up_school(): string
+    public function sign_up_school($idNumber): string
     {
-        $idNumber = "Q103456789";
+        // $idNumber = "Q103456789";
         $model = new Post();
         $record = $model->get_record_from_idNumber($idNumber);
         $data = [
             'record' => $record,
         ];
-        return view('register/sign_up_school');
+        return view('register/sign_up_school',$data);
     }
     public function sign_up_system_mainpage(): string
     {
@@ -118,9 +118,15 @@ class Home extends BaseController
     }
     
 
-    public function wishlist(): string
+    public function wishlist($idNumber): string
     {
-        return view('register/wishlist');
+        // $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        return view('register/wishlist',$data);
     }
 
     public function personal_page(string $id): string

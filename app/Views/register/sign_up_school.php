@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>報名系統</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <?= $this->include('login/offcanvas') ?>
-    <link rel="stylesheet" href="/include/sign_up_school.css">
-</head>
+<?php 
+// $WEB_NAME = '報名系統';
+// include '../app/views/header.php'; // Load header.php
+?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/include/sign_up_school.css">
+<?= $this->include('login/offcanvas') ?>
+
 <body>
     <div class="container">
         <h1>報名系統</h1>
-        <form action="/home/wishlist" method="POST">
+        <form action="/Home/verify/choices" method="POST">
             <div class="form-group">
                 <label for="school">欲報名之學校：</label>
                 <select id="school" name="school" required>
@@ -53,31 +51,38 @@
             <div id="wishlist_container">
             </div>
             <input type="hidden" id="wishlist_data" name="wishlist_data">
+            <input type="hidden" id="ID_number" name="ID_number">
             <button type="submit">提交報名</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var wishlistCount = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            // ID number.
+            var ID_number = document.getElementById('ID_number');
+            ID_number.value = "<?php echo $record['ID_number']?>"
 
-    document.getElementById('add_wishlist').addEventListener('click', function() {
-        wishlistCount++;
+            // Click.
+            var wishlistCount = 0;
+            document.getElementById('add_wishlist').addEventListener('click', function() {
+                // Add wishlist.
+                wishlistCount++;
+                var school = document.getElementById('school').options[document.getElementById('school').selectedIndex].text;
+                var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
+                var wishlistItem = document.createElement('div');
+                wishlistItem.classList.add('wishlist-item');
+                wishlistItem.innerHTML =    '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
+                                            '<span class="school">' + school + '</span>' +
+                                            '<span class="department">' + department + '</span>';
+                document.getElementById('wishlist_container').appendChild(wishlistItem);
 
-        var school = document.getElementById('school').options[document.getElementById('school').selectedIndex].text;
-        var department = document.getElementById('department').options[document.getElementById('department').selectedIndex].text;
-        var wishlistItem = document.createElement('div');
-        wishlistItem.classList.add('wishlist-item');
-        wishlistItem.innerHTML = '<span class="wishlist-label">志願' + wishlistCount + '</span>' +
-                                '<span class="school">' + school + '</span>' +
-                                '<span class="department">' + department + '</span>';
-        document.getElementById('wishlist_container').appendChild(wishlistItem);
-        var currentData = document.getElementById('wishlist_data').value;
-        var newData = wishlistCount + ',' + school + ',' + department;
-        document.getElementById('wishlist_data').value = currentData ? currentData + ';' + newData : newData;
+                // wishlist_data.
+                var currentData = document.getElementById('wishlist_data').value;
+                var newData = wishlistCount + ',' + school + ',' + department;
+                document.getElementById('wishlist_data').value = currentData ? currentData + ';' + newData : newData;
+        });
     });
-});
-</script>
+    </script>
 </body>
 </html>

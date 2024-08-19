@@ -138,11 +138,11 @@ class access_database extends Post {
 
     public function store_choices(){
         $data = [
-            "choices"	    => $_POST['password'],
+            "choices"	    => $_POST['wishlist_data'],
         ];
-        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
+        $exists = $this->check_idNumber($_POST['ID_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
-        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
+        return $this->updateFieldsByIdNumber($_POST['ID_number'], $data);
     }
 
 
@@ -286,8 +286,12 @@ switch ($method) {
         break;
     case "choices":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        $db->store_choices();
-
+        if ($db->store_choices()){
+            toURL('/Home/wishlist/'.$_POST['ID_number']);
+        }else{
+            echo("失敗");
+        }
+        
         break;
     default:
         alert("Error: method");
