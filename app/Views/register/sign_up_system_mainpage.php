@@ -1,7 +1,7 @@
 <?php 
 use App\Models\Post;
 $model = new Post();
-$ID_number = 'Q123456789';
+$ID_number = $record['ID_number'];
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +39,13 @@ $ID_number = 'Q123456789';
             if (isBasicInfoFilled) {
                 registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。';
                 var dataLink = document.createElement('a');
-                dataLink.href = "<?php echo '/home/show/'.$ID_number;?>"; 
+                dataLink.href = "<?php echo '/home/sign_up_information/'.$ID_number;?>"; 
                 dataLink.textContent = '查看資料表';
                 registrationProgressElement.appendChild(document.createElement('br'));
                 registrationProgressElement.appendChild(dataLink);
                 checkWishlistStatus();
             } else {
-                registrationProgressElement.innerHTML = '您的報名進度：尚未填寫基本資料。請先<a href="/home/sign_up_information">填寫基本資料</a>。';
+                registrationProgressElement.innerHTML = '您的報名進度：尚未填寫基本資料。請先<a href='+"<?php echo '/home/sign_up_information/'.$ID_number;?>"+'>填寫基本資料</a>。';
                 var wishlistStatusElement = document.getElementById('wishlist-status');
                 wishlistStatusElement.innerHTML = '請先完成資料表填寫。';
             }

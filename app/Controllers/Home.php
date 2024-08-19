@@ -93,9 +93,14 @@ class Home extends BaseController
         ];
         return view('register/sign_up_school',$data);
     }
-    public function sign_up_system_mainpage(): string
+    public function sign_up_system_mainpage($idNumber): string
     {
-        return view('register/sign_up_system_mainpage');
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        return view('register/sign_up_system_mainpage', $data);
     }
     public function apply_account(): string
     {
