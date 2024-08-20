@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>設定密碼</title>
-    <link rel="stylesheet" href="/include/common_style.css">
-    </script>
-</head>
-<?php include '../app/views/header.php'?>
+<?php 
+$WEB_NAME = '設定密碼';
+include '../app/views/header.php';
+?>
+<link rel="stylesheet" href="/include/common_style.css">
 <body>
     
     <div class="container">

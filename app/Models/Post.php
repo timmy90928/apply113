@@ -13,7 +13,7 @@ class Post extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'username', 'password', 'Permissions','ID_number','gender','name', 'origin_school', 'subject', 'phone_number', 'email', 'address', 'status'
+        'username', 'password', 'Permissions','ID_number','gender','name', 'origin_school', 'subject', 'phone_number', 'email', 'address', 'status','choices'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -72,6 +72,13 @@ class Post extends Model
         }
     }
 
+    /** Get record of designated ID number. */
+    public function get_record_from_idNumber(string $idNumber){
+        $exists = $this->checkIfExists('ID_number', $idNumber);
+        if (! $exists){ alert("該身分證尚未申請帳號"); }
+        return $this->where('ID_number', $idNumber)->first();
+    }
+
     /** Check if the record with the given ID number exists. */
     public function checkIfExists(string $fieldName, string $value)
     {
@@ -113,7 +120,7 @@ class Post extends Model
     }
 
     /** Check if the `name` field is empty for a given ID number. */
-    public function isNameEmptyForIdNumber($idNumber)
+    public function isFieldEmptyForIdNumber(string $field,string $idNumber)
     {
         $query = $this->where('ID_number', $idNumber)->first(); // Assuming there is only one record for this ID_number
 
@@ -121,7 +128,7 @@ class Post extends Model
             return true; // Record not found
         }
 
-        $name = $query['name'];
+        $name = $query[$field];
 
         return empty($name);
     }

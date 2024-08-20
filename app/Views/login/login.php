@@ -1,12 +1,8 @@
-
-<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
-<html>
-<head>
-<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-
-<title>登入</title>
-
-<link rel="stylesheet" href="../include/common_style.css">
+<?php 
+$WEB_NAME = '登入';
+include '../app/views/header.php';
+?>
+<link rel="stylesheet" href="/include/common_style.css">
 <script language='javascript'>
     function FormLoad(){
         document.form1.USER.focus();	
@@ -19,8 +15,6 @@
         window.location.href = '/Home/verify/forget_password?USER=' + encodeURIComponent(userValue);
     }
 </script>
-
-<?php include '../app/views/header.php' ?>
 <body>
     <div class="container">
         <h1>登入系統</h1>
@@ -53,14 +47,3 @@
 </body>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </html>
-
-
-<?php
-// if(!empty($posts)){
-//     echo '<h1> Username </h1>';
-//     foreach($posts as $posts_item){
-//         echo '
-//             <a href="/home/show/'.$posts_item['ID'].'">'.$posts_item['username'].'</a><br>';
-//     }
-// }
-?>

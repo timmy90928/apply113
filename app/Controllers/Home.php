@@ -31,11 +31,7 @@ class Home extends BaseController
     }
     public function login(): string
     {
-        $model = new Post();
-        $data = [
-            'posts' => $model->findall()
-        ];
-        return view('login/login',$data);
+        return view('login/login');
     }
     public function show($post_id){
         $model = new Post();
@@ -76,17 +72,35 @@ class Home extends BaseController
         header("Location: /home/show/".$data['ID_number']);
         exit();
     }
-    public function sign_up_information(): string
+    public function sign_up_information($idNumber): string
     {
-        return view('register/sign_up_information');
+        // $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        
+        return view('register/sign_up_information',$data);
     }
-    public function sign_up_school(): string
+    public function sign_up_school($idNumber): string
     {
-        return view('register/sign_up_school');
+        // $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        return view('register/sign_up_school',$data);
     }
-    public function sign_up_system_mainpage(): string
+    public function sign_up_system_mainpage($idNumber): string
     {
-        return view('register/sign_up_system_mainpage');
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        return view('register/sign_up_system_mainpage', $data);
     }
     public function apply_account(): string
     {
@@ -109,13 +123,34 @@ class Home extends BaseController
     }
     
 
-    public function wishlist(): string
+    public function wishlist($idNumber): string
     {
-        return view('register/wishlist');
+        // $idNumber = "Q103456789";
+        $model = new Post();
+        $record = $model->get_record_from_idNumber($idNumber);
+        $data = [
+            'record' => $record,
+        ];
+        return view('register/wishlist',$data);
     }
 
-    public function personal_page(): string
+    public function personal_page(string $id): string
     {
-        return view('login/personal_page');
+        $model = new Post();
+        $record = $model->get_record_from_idNumber(base64_decode($id));
+        $data = [
+            'id' => $record['ID_number'],
+            'name' => $record['name'],
+        ];
+        return view('login/personal_page',$data);
     }
+    public function admin_page(): string
+    {
+        $model = new Post();
+        $data = [
+            'posts' => $model->findall()
+        ];
+        return view('login/admin_page',$data);
+    }
+    
 }

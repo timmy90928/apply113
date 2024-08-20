@@ -26,7 +26,7 @@ body {
 }
 
 .name, .menu, .main-options {
-    background-color: #003366;
+    background-color: #4680d1;
     color: #ffffff;
     padding: 20px;
     border: 1px solid #ccc;
@@ -49,6 +49,13 @@ body {
     margin-bottom: 10px;
     color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #4680d1;
+    background-color: #ffffff;
+    padding: 5px;
 }
 
 .main-options {
@@ -61,4 +68,11 @@ body {
     margin: 20px 0;
     color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.main-options a:hover {
+    color: #4680d1;
+    background-color: #ffffff;
+    padding: 5px;
 }

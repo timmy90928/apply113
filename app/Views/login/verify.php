@@ -138,7 +138,7 @@ class access_database extends Post {
 
     public function store_choices(){
         $data = [
-            "choices"	    => $_POST['password'],
+            "choices"	    => $_POST['wishlist_data'],
         ];
         $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
@@ -155,9 +155,9 @@ class access_database extends Post {
             "origin_school"	=> $_POST['school'],
             "subject"	    => $_POST['department'],
         ];
-        $exists = $this->check_idNumber($data['ID_number']); // Check ID number.
+        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
-        return $this->updateFieldsByIdNumber($data['ID_number'], $data);
+        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
     }
 
     /** Get record of designated ID number. */
@@ -255,7 +255,7 @@ switch ($method) {
         assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
         assert_login($db);
-        toURL('/');
+        toURL("/Home/sign_up_system_mainpage/".$_POST['USER']);
         break;
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.
@@ -265,7 +265,7 @@ switch ($method) {
         break;
     case "info":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        // store_basic_info();
+        if ($db->store_basic_info()){ alert("成功更新"); }
         break;
     case "verify":
         if (! isset($_GET["token"])) {alert("請使用正當管道進行驗證: 網址格式錯誤");}
@@ -286,8 +286,12 @@ switch ($method) {
         break;
     case "choices":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        $db->store_choices();
-
+        if ($db->store_choices()){
+            toURL('/Home/wishlist/'.$_POST['id_number']);
+        }else{
+            echo("失敗");
+        }
+        
         break;
     default:
         alert("Error: method");
