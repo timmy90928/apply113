@@ -265,7 +265,7 @@ switch ($method) {
         break;
     case "info":
         assert_method();    // Check whether REQUEST METHOD is POST.
-        $db->store_basic_info();
+        if ($db->store_basic_info()){ alert("成功更新"); }
         break;
     case "verify":
         if (! isset($_GET["token"])) {alert("請使用正當管道進行驗證: 網址格式錯誤");}
