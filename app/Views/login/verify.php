@@ -251,11 +251,15 @@ class SaveURL{
 // main
 $db = new access_database();
 switch ($method) {
-    case "login": // asdfasfd
+    case "login":
         assert_method();    // Check whether REQUEST METHOD is POST.
         assert_hcaptcha();
         assert_login($db);
-        toURL("/Home/sign_up_system_mainpage/".$_POST['USER']);
+        if ($db->get_record_from_idNumber($_POST['USER'])['Permissions'] == "Admin"){
+            toURL("/Home/admin_page"); 
+        }else{
+            toURL("/Home/sign_up_system_mainpage/".$_POST['USER']);
+        }
         break;
     case "apply":
         assert_method();    // Check whether REQUEST METHOD is POST.
