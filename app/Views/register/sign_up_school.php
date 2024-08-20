@@ -49,11 +49,11 @@ include '../app/views/login/offcanvas.php';
                     <option value="Hist">歷史系</option>
                 </select>
             </div>
-            <button type="button" id="add_wishlist">新增志願</button>
-            <div id="wishlist_container">
+                <button type="button" id="add_wishlist">新增志願</button>
+                <div id="wishlist_container">
             </div>
             <input type="hidden" id="wishlist_data" name="wishlist_data">
-            <input type="hidden" id="ID_number" name="ID_number">
+            <input type="hidden" id="id_number" name="id_number">
             <button type="submit">提交報名</button>
         </form>
     </div>
@@ -62,7 +62,7 @@ include '../app/views/login/offcanvas.php';
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // ID number.
-            var ID_number = document.getElementById('ID_number');
+            var ID_number = document.getElementById('id_number');
             ID_number.value = "<?php echo $record['ID_number']?>";
 
             // Click.

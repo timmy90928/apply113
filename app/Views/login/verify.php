@@ -140,9 +140,9 @@ class access_database extends Post {
         $data = [
             "choices"	    => $_POST['wishlist_data'],
         ];
-        $exists = $this->check_idNumber($_POST['ID_number']); // Check ID number.
+        $exists = $this->check_idNumber($_POST['id_number']); // Check ID number.
         if (! $exists) { alert('請檢查該身分證號碼是否已申請帳號'); }
-        return $this->updateFieldsByIdNumber($_POST['ID_number'], $data);
+        return $this->updateFieldsByIdNumber($_POST['id_number'], $data);
     }
 
 
@@ -287,7 +287,7 @@ switch ($method) {
     case "choices":
         assert_method();    // Check whether REQUEST METHOD is POST.
         if ($db->store_choices()){
-            toURL('/Home/wishlist/'.$_POST['ID_number']);
+            toURL('/Home/wishlist/'.$_POST['id_number']);
         }else{
             echo("失敗");
         }
