@@ -1,10 +1,12 @@
 <?php 
-// $WEB_NAME = '報名系統';
-// include '../app/views/header.php'; // Load header.php
+use App\Models\Post;
+$model = new Post();
+$ID_number = $record['ID_number'];
+$user = $record['name'].'('.$ID_number.')';
+include '../app/views/login/offcanvas.php';
 ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="/include/sign_up_school.css">
-<?= $this->include('login/offcanvas') ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 <body>
     <div class="container">

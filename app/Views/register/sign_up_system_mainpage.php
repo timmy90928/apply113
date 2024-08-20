@@ -2,6 +2,8 @@
 use App\Models\Post;
 $model = new Post();
 $ID_number = $record['ID_number'];
+$user = $record['name'].'('.$ID_number.')';
+include '../app/views/login/offcanvas.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,12 +13,11 @@ $ID_number = $record['ID_number'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>報名系統 - 首頁</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <?= $this->include('login/offcanvas') ?>
     <link rel="stylesheet" href="/include/sign_up_system_mainpage.css">
 </head>
 <body>
     <div class="container">
-        <h1>報名系統首頁</h1>
+        <h2>首頁</h2>
 
         <div class="status-table">
             <h2>報名狀態與資料表</h2>
@@ -28,9 +29,6 @@ $ID_number = $record['ID_number'];
             <p id="wishlist-status">正在檢查填寫狀態...</p>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var isBasicInfoFilled = "<?php echo $model->isFieldEmptyForIdNumber('email',$ID_number);?>";

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>志願清單</title>
-    <link rel="stylesheet" href="/include/styled_table.css">
-    <link rel="stylesheet" href="/include/common_style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <?= $this->include('login/offcanvas') ?>
-</head>
+<?php 
+use App\Models\Post;
+$model = new Post();
+$ID_number = $record['ID_number'];
+$user = $record['name'].'('.$ID_number.')';
+include '../app/views/login/offcanvas.php';
+?>
+<title>志願清單</title>
+<link rel="stylesheet" href="/include/styled_table.css">
+<link rel="stylesheet" href="/include/common_style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container" style="margin: 100px auto">
     <h1 class="title"> 已填寫的志願 </h1>
