@@ -31,7 +31,7 @@ include '../app/views/login/offcanvas.php';
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var isBasicInfoFilled = "<?php echo $model->isFieldEmptyForIdNumber('email',$ID_number);?>";
+            var isBasicInfoFilled = "<?php echo $model->isFieldEmptyForIdNumber('phone_number',$ID_number);?>";
 
             var registrationProgressElement = document.getElementById('registration-progress');
             if (!isBasicInfoFilled) {
