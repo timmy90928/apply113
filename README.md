@@ -16,12 +16,18 @@ Run `server run.bat`
     git remote add origin https://github.com/timmy90928/apply113.git
     ```
 
+## Database Diagram
+![Database ER diagram](./docs/Database%20ER%20diagram.png)
+Designed using [lucidchart].
+
 ## Tutorial
 * [CI4.pdf](./docs/CI4.pdf)
 * MVC architecture
 ![MVC architecture](./docs/MVC%20architecture.jpg)
 * For other tutorials, please refer to `./docs`
 
+<!-- Reference -->
 [PHP]: https://www.php.net/downloads.php "Download PHP ZIP"
 [Composer]: https://getcomposer.org/download/ "Download Composer-Setup.exe"
 [php.ini]: ./docs/php.ini "PHP configuration file"
+[lucidchart]: https://www.lucidchart.com/pages/ "lucidchart"
