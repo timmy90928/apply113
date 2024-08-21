@@ -44,7 +44,7 @@ article li {
 /* 響應式樣式 */
 @media screen and (max-width: 768px) {
     header h1 {
-        font-size: 28px;
+        font-size: 26px;
         padding: 10px;
     }
 

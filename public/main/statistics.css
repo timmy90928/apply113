@@ -41,7 +41,7 @@
 /* 響應式設計 */
 @media screen and (max-width: 768px) {
     header h1 {
-        font-size: 28px;
+        font-size: 26px;
         padding: 10px;
     }
 
