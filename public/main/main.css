@@ -20,43 +20,47 @@ nav {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1000;
-    transition: background-color 0.8s ease; /* 添加過渡效果 */
+    transition: background-color 0.8s ease;
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     height: 30px;
+    max-width: 100%;
+    margin: 0 auto; /* 使容器居中 */
+    position: relative;
 }
 
 .nav-links {
     display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    flex: 1;
+    justify-content: center; /* 四個按鈕居中 */
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     padding: 10px;
-    margin: 0 50px;
+    margin: 0 50px; /* 調整按鈕間的間距 */
 }
 
 .nav-links a:hover {
     text-decoration: underline;
-    background-color: transparent;
 }
 
-.nav-right a {
+/* 登入按鈕樣式 */
+.login-link {
     color: white;
     text-decoration: none;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0px; /* 固定在右側 */
 }
 
-.nav-right a:hover {
+.login-link:hover {
     text-decoration: underline;
-    background-color: transparent;
 }
 
 /* 菜單按鈕樣式 */
@@ -68,7 +72,7 @@ nav {
 }
 
 /* 響應式樣式 */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .menu-button {
         display: block;
     }
@@ -87,6 +91,7 @@ nav {
         flex-direction: column;
         background-color: rgba(128, 128, 128, 1);
         transition: opacity 0.8s ease;
+        gap: 0; /* 取消手機版中的間距 */
     }
 
     .nav-links.active {
@@ -103,9 +108,26 @@ nav {
     .nav-links a:last-child {
         border-bottom: none;
     }
+
+    /* 確保手機的登入按鈕也顯示在選單中 */
+    .login-link {
+        display: block;
+        border-top: 2px solid rgba(255, 255, 255, 0.3);
+        margin-top: auto; /* 確保登入按鈕在選單的最後面 */
+        padding-top: 15px;
+        position: static; /* 取消位置固定 */
+        right: auto; /* 取消右側位置 */
+    }
 }
 
-/* 頁面標頭樣式 */
+/* 桌面版樣式 */
+@media (min-width: 769px) {
+    .nav-links .login-link {
+        display: block;
+    }
+}
+
+/* 頁首樣式 */
 header {
     background-color: #ffffff;
     padding: 40px 0 0px 0;
@@ -135,32 +157,4 @@ footer {
 footer p {
     color: white;
     margin: 0;
-}
-
-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  font-size: 14px;
-  margin-bottom: 40px;
-}
-
-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
-  width: 50%;
-}
-
-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-table tr:hover {
-  background-color: #f5f5f5;
-}
-
-table tr td[style="color: red;"] {
-  color: red !important;
-  font-weight: bold;
 }

@@ -11,15 +11,13 @@
         <nav>
             <div class="nav-container">
                 <div class="menu-button">
-                    <span>&#9776;</span><!-- 這是選單圖示 -->
+                    <span>&#9776;</span>
                 </div>
                 <div class="nav-links">
                     <a href="/Home" class="home-link">訊息公告</a>
                     <a href="/Home/schedule">重要時程</a>
                     <a href="/Home/statistics">統計資料</a>
                     <a href="/Home/reference">相關網站</a>
-                </div>
-                <div class="nav-right">
                     <a href="/Home/login" class="login-link">登入</a>
                 </div>
             </div>
