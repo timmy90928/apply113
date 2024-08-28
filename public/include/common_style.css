@@ -109,3 +109,64 @@ input[type="reset"]:hover {
     margin-top: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .notice {
+        font-size: 13px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"],
+    .form-group input[type="email"] {
+        font-size: 14px;
+    }
+
+    .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    button {
+        width: 120px; /* 固定寬度 */
+        margin: 5px;
+        font-size: 13px;
+        padding: 8px 0; /* 移除水平內邊距 */
+        text-align: center; /* 確保文字居中 */
+    }
+
+    /* 讓登入和重設按鈕在同一行 */
+    .button-group div:nth-child(1) {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    /* 讓忘記密碼/更改密碼和申請帳號按鈕在下一行 */
+    .button-group div:nth-child(2) {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 10px;
+    }
+
+    .g-recaptcha {
+        transform: scale(0.9);
+        transform-origin: center 0;
+        margin: 10px auto;
+    }
+}

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>登入系統-申請入學</title>
 
@@ -43,10 +44,14 @@
                     <input type="hidden" name="g-captcha-response" id="g-captcha-response">
                 </div>
                 <div class="button-group">
-                    <input type='submit' value='登入'>
-                    <input type='reset'  value='重設'>
-                    <input type='button' name='forget_password' value='忘記密碼/更改密碼' onClick='ToForgetPassword()'>
-                    <input type='button' name='apply' value='申請帳號' onClick='ToApplyAccount()'>
+                    <div>
+                        <input type='submit' value='登入'>
+                        <input type='reset'  value='重設'>
+                    </div>
+                    <div>
+                        <input type='button' name='forget_password' value='忘記密碼/更改密碼' onClick='ToForgetPassword()'>
+                        <input type='button' name='apply' value='申請帳號' onClick='ToApplyAccount()'>
+                    </div>
                 </div>
             </form>
         </div>
