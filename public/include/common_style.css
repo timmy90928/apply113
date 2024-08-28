@@ -145,8 +145,8 @@ input[type="reset"]:hover {
         width: 120px; /* 固定寬度 */
         margin: 5px;
         font-size: 13px;
-        padding: 8px 0; /* 移除水平內邊距 */
-        text-align: center; /* 確保文字居中 */
+        padding: 8px 0;
+        text-align: center;
     }
 
     /* 讓登入和重設按鈕在同一行 */
