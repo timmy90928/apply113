@@ -7,7 +7,6 @@ body {
 
 .container {
     width: 90%;
-    /* max-width: 600px; */
     margin: 20px auto;
     padding: 20px;
     background: #fff;
@@ -53,8 +52,10 @@ form {
 
 .button-group {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    gap: 5px;
 }
 
 input[type="button"],
@@ -63,14 +64,15 @@ input[type="reset"],
 button {
     font-family: '標楷體', Arial, sans-serif;
     padding: 10px 15px;
+    margin: 0px 20px;
     font-size: 16px;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 120px;
-    width: auto;
+    flex: 1 1 calc(25% - 30px); /* 調整以適應更大的間距 */
     min-width: 120px;
+    max-width: 200px;
 }
 
 input[type="button"],
@@ -112,8 +114,7 @@ input[type="reset"]:hover {
 
 @media screen and (max-width: 768px) {
     .container {
-        width: 90%;
-        max-width: 400px;
+        width: 95%;
         padding: 15px;
         margin: 10px auto;
     }
@@ -132,36 +133,12 @@ input[type="reset"]:hover {
         font-size: 14px;
     }
 
-    .button-group {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
     button {
-        width: 120px; /* 固定寬度 */
-        margin: 5px;
         font-size: 13px;
-        padding: 8px 0;
-        text-align: center;
-    }
-
-    /* 讓登入和重設按鈕在同一行 */
-    .button-group div:nth-child(1) {
-        display: flex;
-        justify-content: space-between;
-        width: 80%;
-    }
-
-    /* 讓忘記密碼/更改密碼和申請帳號按鈕在下一行 */
-    .button-group div:nth-child(2) {
-        display: flex;
-        justify-content: space-between;
-        width: 80%;
-        margin-top: 10px;
+        padding: 5px 0;
     }
 
     .g-recaptcha {
