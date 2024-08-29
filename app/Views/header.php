@@ -26,5 +26,12 @@
         color: #6f93fe;
         margin-top: 10px;
     }
+
+    @media screen and (max-width: 768px) {
+        header {
+            font-size: 26px;
+            padding: 10px;
+        }
+    }
 </style>
 <header>113學年度大學申請入學招生</header>
