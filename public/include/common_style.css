@@ -30,6 +30,38 @@ form {
     width: 100%;
 }
 
+.form-table {
+    /* <table class="form-table"></table> */
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 15px;
+    margin-bottom: 10px;
+}
+.form-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.form-table .form-label {
+    /* <td class='form-label'></td> */
+    text-align: right;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    width: 200px;
+}
+.form-table input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 .form-group {
     margin-bottom: 15px;
 }
