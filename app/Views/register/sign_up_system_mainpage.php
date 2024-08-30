@@ -35,9 +35,9 @@ include '../app/views/login/offcanvas.php';
 
             var registrationProgressElement = document.getElementById('registration-progress');
             if (!isBasicInfoFilled) {
-                registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。<br>' +
-                                                        '<a href="<?php echo '/home/show/'.$ID_number;?>">查看資料表</a> | ' +
-                                                        '<a href="<?php echo '/home/sign_up_information/'.$ID_number;?>">修改資料表</a>';
+                registrationProgressElement.innerHTML = '您的報名進度：已填寫基本資料，請選擇填寫志願順序。<br>' ;
+                                                        // +'<a href="<php echo '/home/show/'.$ID_number;?>">查看資料表</a> | ' +
+                                                        // '<a href="<php echo '/home/sign_up_information/'.$ID_number;?>">修改資料表</a>';
                 
                 checkWishlistStatus();
             } else {
